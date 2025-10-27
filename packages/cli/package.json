@@ -1,6 +1,6 @@
 {
   "name": "rewardai",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "RewardAI CLI for distributing Pump.fun token rewards",
   "type": "module",
   "main": "./dist/index.js",

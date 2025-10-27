@@ -1,6 +1,6 @@
 {
   "name": "rewardai-sdk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "RewardAI SDK for distributing Pump.fun token rewards via Coinbase x402",
   "type": "module",
   "main": "./dist/index.js",
