@@ -1,7 +1,7 @@
 /**
  * SDK Configuration
  */
-export interface PumpBuddyConfig {
+export interface RewardAIConfig {
   /** Solana network: 'mainnet-beta' | 'devnet' | 'testnet' */
   network?: 'mainnet-beta' | 'devnet' | 'testnet';
   /** Custom RPC endpoint (optional) */

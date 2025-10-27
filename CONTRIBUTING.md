@@ -1,12 +1,12 @@
-# Contributing to PumpBuddy SDK
+# Contributing to RewardAI SDK
 
 Thank you for your interest in contributing!
 
 ## Development Setup
 
 ```bash
-git clone https://github.com/beigecode/pumpbuddy-sdk.git
-cd pumpbuddy-sdk
+git clone https://github.com/beigecode/rewardai-sdk.git
+cd rewardai-sdk
 npm install
 npm run build
 ```

@@ -1,4 +1,4 @@
-# 🎉 PumpBuddy SDK - Successfully Published!
+# 🎉 RewardAI SDK - Successfully Published!
 
 **Date**: October 27, 2025  
 **Published by**: @beigecode  
@@ -8,28 +8,28 @@
 
 ## 📦 Published Packages
 
-### 1. @beigecode/pumpbuddy-sdk
+### 1. @beigecode/rewardai-sdk
 - **Version**: 0.1.0
-- **npm URL**: https://www.npmjs.com/package/@beigecode/pumpbuddy-sdk
+- **npm URL**: https://www.npmjs.com/package/@beigecode/rewardai-sdk
 - **Package Size**: 9.1 KB (39.1 KB unpacked)
 - **Files**: 14
-- **Install**: `npm install @beigecode/pumpbuddy-sdk`
+- **Install**: `npm install @beigecode/rewardai-sdk`
 
-### 2. @beigecode/pumpbuddy
+### 2. @beigecode/rewardai
 - **Version**: 0.1.0
-- **npm URL**: https://www.npmjs.com/package/@beigecode/pumpbuddy
+- **npm URL**: https://www.npmjs.com/package/@beigecode/rewardai
 - **Package Size**: 4.5 KB (16.7 KB unpacked)
 - **Files**: 6
-- **Install**: `npm install -g @beigecode/pumpbuddy`
-- **Binary**: `pumpbuddy` (available globally after install)
+- **Install**: `npm install -g @beigecode/rewardai`
+- **Binary**: `rewardai` (available globally after install)
 
 ---
 
 ## 🔗 Links
 
-- **GitHub Repository**: https://github.com/beigecode/pumpbuddy-sdk
-- **SDK on npm**: https://www.npmjs.com/package/@beigecode/pumpbuddy-sdk
-- **CLI on npm**: https://www.npmjs.com/package/@beigecode/pumpbuddy
+- **GitHub Repository**: https://github.com/beigecode/rewardai-sdk
+- **SDK on npm**: https://www.npmjs.com/package/@beigecode/rewardai-sdk
+- **CLI on npm**: https://www.npmjs.com/package/@beigecode/rewardai
 - **npm Profile**: https://www.npmjs.com/~beigecode
 
 ---
@@ -41,8 +41,8 @@ To resolve the scope error, packages were renamed to use the `@beigecode` scope:
 
 | Original Name | Published Name |
 |--------------|----------------|
-| `@pumpbuddy/sdk` | `@beigecode/pumpbuddy-sdk` |
-| `pumpbuddy` | `@beigecode/pumpbuddy` |
+| `@rewardai/sdk` | `@beigecode/rewardai-sdk` |
+| `rewardai` | `@beigecode/rewardai` |
 
 ### Files Updated
 - ✅ `packages/sdk/package.json` - Updated package name
@@ -66,12 +66,12 @@ To resolve the scope error, packages were renamed to use the `@beigecode` scope:
 
 ```bash
 # Install the SDK
-npm install @beigecode/pumpbuddy-sdk
+npm install @beigecode/rewardai-sdk
 
 # Use in your project
-import { PumpBuddy } from '@beigecode/pumpbuddy-sdk';
+import { RewardAI } from '@beigecode/rewardai-sdk';
 
-const sdk = new PumpBuddy({ network: 'devnet' });
+const sdk = new RewardAI({ network: 'devnet' });
 await sdk.init();
 ```
 
@@ -79,16 +79,16 @@ await sdk.init();
 
 ```bash
 # Install globally
-npm install -g @beigecode/pumpbuddy
+npm install -g @beigecode/rewardai
 
 # Verify installation
-pumpbuddy --version
+rewardai --version
 
 # Run quickstart
-pumpbuddy quickstart --wallet YOUR_WALLET --devnet
+rewardai quickstart --wallet YOUR_WALLET --devnet
 
 # Distribute rewards
-pumpbuddy distribute \
+rewardai distribute \
   --wallet YOUR_WALLET \
   --token TOKEN_MINT \
   --recipients ./recipients.csv \
@@ -100,7 +100,7 @@ pumpbuddy distribute \
 ## 📊 Package Contents
 
 ### SDK Package Includes
-- ✅ `PumpBuddy` class (main SDK)
+- ✅ `RewardAI` class (main SDK)
 - ✅ TypeScript type definitions
 - ✅ Solana integration utilities
 - ✅ x402 payment protocol integration
@@ -109,8 +109,8 @@ pumpbuddy distribute \
 - ✅ Complete documentation
 
 ### CLI Package Includes
-- ✅ `pumpbuddy quickstart` command
-- ✅ `pumpbuddy distribute` command
+- ✅ `rewardai quickstart` command
+- ✅ `rewardai distribute` command
 - ✅ Interactive wallet prompts
 - ✅ CSV recipient parsing
 - ✅ Colorful CLI output
@@ -160,11 +160,11 @@ pumpbuddy distribute \
 ## 📚 Documentation
 
 ### Published Documentation
-- [README.md](https://github.com/beigecode/pumpbuddy-sdk/blob/main/README.md) - Main overview
-- [SDK README](https://github.com/beigecode/pumpbuddy-sdk/blob/main/packages/sdk/README.md) - SDK API reference
-- [CLI README](https://github.com/beigecode/pumpbuddy-sdk/blob/main/packages/cli/README.md) - CLI commands
-- [x402 Integration Guide](https://github.com/beigecode/pumpbuddy-sdk/blob/main/docs/x402-integration.md) - Complete x402 guide
-- [Contributing Guide](https://github.com/beigecode/pumpbuddy-sdk/blob/main/CONTRIBUTING.md) - How to contribute
+- [README.md](https://github.com/beigecode/rewardai-sdk/blob/main/README.md) - Main overview
+- [SDK README](https://github.com/beigecode/rewardai-sdk/blob/main/packages/sdk/README.md) - SDK API reference
+- [CLI README](https://github.com/beigecode/rewardai-sdk/blob/main/packages/cli/README.md) - CLI commands
+- [x402 Integration Guide](https://github.com/beigecode/rewardai-sdk/blob/main/docs/x402-integration.md) - Complete x402 guide
+- [Contributing Guide](https://github.com/beigecode/rewardai-sdk/blob/main/CONTRIBUTING.md) - How to contribute
 
 ### Local Documentation
 - `PUBLISHING_GUIDE.md` - How we published to npm
@@ -197,28 +197,28 @@ pumpbuddy distribute \
 ### Installing
 ```bash
 # For SDK developers
-npm install @beigecode/pumpbuddy-sdk
+npm install @beigecode/rewardai-sdk
 
 # For CLI users
-npm install -g @beigecode/pumpbuddy
+npm install -g @beigecode/rewardai
 ```
 
 ### Getting Started
 ```bash
 # Clone repository for examples
-git clone https://github.com/beigecode/pumpbuddy-sdk.git
-cd pumpbuddy-sdk
+git clone https://github.com/beigecode/rewardai-sdk.git
+cd rewardai-sdk
 
 # Check examples
 ls examples/
 
 # Try CLI
-pumpbuddy quickstart --help
+rewardai quickstart --help
 ```
 
 ### Support
-- 🐛 Report issues: https://github.com/beigecode/pumpbuddy-sdk/issues
-- 💬 Discussions: https://github.com/beigecode/pumpbuddy-sdk/discussions
+- 🐛 Report issues: https://github.com/beigecode/rewardai-sdk/issues
+- 💬 Discussions: https://github.com/beigecode/rewardai-sdk/discussions
 - 📧 Contact: npm profile or GitHub
 
 ---
@@ -235,7 +235,7 @@ pumpbuddy quickstart --help
 
 **Status**: ✅ Successfully Published  
 **Packages Live**: https://www.npmjs.com/~beigecode  
-**Repository**: https://github.com/beigecode/pumpbuddy-sdk
+**Repository**: https://github.com/beigecode/rewardai-sdk
 
-🎉 **Your PumpBuddy SDK is now available to the world!**
+🎉 **Your RewardAI SDK is now available to the world!**
 

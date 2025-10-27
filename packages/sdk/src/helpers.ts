@@ -1,10 +1,10 @@
 /**
- * PumpBuddy Helper Functions
+ * RewardAI Helper Functions
  * 
  * User-friendly one-liner functions for common use cases
  */
 
-import { PumpBuddy } from './index';
+import { RewardAI } from './index';
 import type { Recipient, DistributeResult } from './types';
 
 export interface RewardTopTradersParams {
@@ -66,7 +66,7 @@ export async function rewardTopTraders(
 ): Promise<DistributeResult> {
   const { wallet, tokenMint, prizes, traders, network = 'mainnet-beta' } = params;
 
-  const sdk = new PumpBuddy({ network });
+  const sdk = new RewardAI({ network });
   await sdk.init();
 
   const recipients: Recipient[] = traders.slice(0, prizes.length).map((trader, i) => ({
@@ -91,7 +91,7 @@ export async function airdropToHolders(
 ): Promise<DistributeResult> {
   const { wallet, tokenMint, totalAmount, proportional, holders, network = 'mainnet-beta' } = params;
 
-  const sdk = new PumpBuddy({ network });
+  const sdk = new RewardAI({ network });
   await sdk.init();
 
   if (!holders || holders.length === 0) {
@@ -131,7 +131,7 @@ export async function flashGiveaway(
 ): Promise<DistributeResult> {
   const { wallet, tokenMint, amount, winners, network = 'mainnet-beta' } = params;
 
-  const sdk = new PumpBuddy({ network });
+  const sdk = new RewardAI({ network });
   await sdk.init();
 
   const recipients: Recipient[] = winners.map((winner, i) => ({
@@ -156,7 +156,7 @@ export async function rewardMilestone(
 ): Promise<DistributeResult> {
   const { wallet, tokenMint, amount, recipients, message, network = 'mainnet-beta' } = params;
 
-  const sdk = new PumpBuddy({ network });
+  const sdk = new RewardAI({ network });
   await sdk.init();
 
   const recipientList: Recipient[] = recipients.map((recipient, i) => {
@@ -190,7 +190,7 @@ export async function distributeStakingRewards(
 ): Promise<DistributeResult> {
   const { wallet, tokenMint, apyRate, period, stakers, network = 'mainnet-beta' } = params;
 
-  const sdk = new PumpBuddy({ network });
+  const sdk = new RewardAI({ network });
   await sdk.init();
 
   // Calculate period rate
@@ -224,7 +224,7 @@ export async function rewardEngagement(
 ): Promise<DistributeResult> {
   const { wallet, tokenMint, multiplier, contributors, network = 'mainnet-beta' } = params;
 
-  const sdk = new PumpBuddy({ network });
+  const sdk = new RewardAI({ network });
   await sdk.init();
 
   const recipients: Recipient[] = contributors.map(contributor => ({

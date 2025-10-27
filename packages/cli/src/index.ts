@@ -6,7 +6,7 @@ import { quickstartCommand } from './commands/quickstart';
 import { distributeCommand } from './commands/distribute';
 
 yargs(hideBin(process.argv))
-  .scriptName('pumpbuddy')
+  .scriptName('rewardai')
   .usage('$0 <command> [options]')
   .command(
     'quickstart',

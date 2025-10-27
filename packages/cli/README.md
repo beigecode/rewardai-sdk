@@ -1,11 +1,11 @@
-# pumpbuddy-cli
+# rewardai-cli
 
-Command-line interface for PumpBuddy SDK.
+Command-line interface for RewardAI SDK.
 
 ## Installation
 
 ```bash
-npm install -g pumpbuddy
+npm install -g rewardai
 ```
 
 ## Commands
@@ -15,7 +15,7 @@ npm install -g pumpbuddy
 Quick setup guide with demo distribution.
 
 ```bash
-pumpbuddy quickstart --wallet YOUR_WALLET_ADDRESS
+rewardai quickstart --wallet YOUR_WALLET_ADDRESS
 ```
 
 Options:
@@ -28,14 +28,14 @@ Distribute tokens to recipients.
 
 ```bash
 # Dry-run (safe preview)
-pumpbuddy distribute \
+rewardai distribute \
   --wallet YOUR_WALLET \
   --token TOKEN_MINT \
   --recipients ./recipients.csv \
   --dry-run
 
 # Real distribution
-pumpbuddy distribute \
+rewardai distribute \
   --wallet YOUR_WALLET \
   --token TOKEN_MINT \
   --recipients ./recipients.csv \
@@ -63,17 +63,17 @@ SolanaAddress3...,15,Charlie
 
 ```bash
 # Quick start
-pumpbuddy quickstart
+rewardai quickstart
 
 # Dry-run distribution
-pumpbuddy distribute \
+rewardai distribute \
   --wallet 5Ey... \
   --token PUMP... \
   --recipients ./examples/recipients.csv \
   --dry-run
 
 # Real distribution
-pumpbuddy distribute \
+rewardai distribute \
   --wallet 5Ey... \
   --token PUMP... \
   --recipients ./examples/recipients.csv \

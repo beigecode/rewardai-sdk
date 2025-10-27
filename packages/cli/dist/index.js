@@ -9,7 +9,7 @@ const helpers_1 = require("yargs/helpers");
 const quickstart_1 = require("./commands/quickstart");
 const distribute_1 = require("./commands/distribute");
 (0, yargs_1.default)((0, helpers_1.hideBin)(process.argv))
-    .scriptName('pumpbuddy')
+    .scriptName('rewardai')
     .usage('$0 <command> [options]')
     .command('quickstart', 'Quick setup guide with demo distribution', (yargs) => {
     return yargs

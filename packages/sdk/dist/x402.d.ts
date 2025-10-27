@@ -6,7 +6,7 @@ import type { CreateInvoiceParams, X402Invoice } from './types';
  * See: https://github.com/coinbase/x402
  *
  * The x402 protocol flow:
- * 1. Resource server (PumpBuddy) returns 402 with payment requirements
+ * 1. Resource server (RewardAI) returns 402 with payment requirements
  * 2. Client creates payment payload and sends with X-PAYMENT header
  * 3. Server verifies payment via x402 facilitator
  * 4. Server settles payment on Solana via facilitator

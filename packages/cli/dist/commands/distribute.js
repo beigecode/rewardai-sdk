@@ -5,12 +5,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.distributeCommand = distributeCommand;
-const pumpbuddy_sdk_1 = require("@beigecode/pumpbuddy-sdk");
+const rewardai_sdk_1 = require("rewardai-sdk");
 const chalk_1 = __importDefault(require("chalk"));
 const ora_1 = __importDefault(require("ora"));
 const utils_1 = require("../utils");
 async function distributeCommand(args) {
-    console.log(chalk_1.default.bold.green('\n🎁 PumpBuddy Distribute\n'));
+    console.log(chalk_1.default.bold.green('\n🎁 RewardAI Distribute\n'));
     // Validate required arguments
     try {
         (0, utils_1.validateArgs)(args);
@@ -40,7 +40,7 @@ async function distributeCommand(args) {
         spinner.succeed(`Loaded ${recipients.length} recipients`);
         // Initialize SDK
         spinner = (0, ora_1.default)('Initializing SDK...').start();
-        const sdk = new pumpbuddy_sdk_1.PumpBuddy({
+        const sdk = new rewardai_sdk_1.RewardAI({
             network,
             verbose: false,
         });

@@ -5,13 +5,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.quickstartCommand = quickstartCommand;
-const pumpbuddy_sdk_1 = require("@beigecode/pumpbuddy-sdk");
+const rewardai_sdk_1 = require("rewardai-sdk");
 const inquirer_1 = __importDefault(require("inquirer"));
 const chalk_1 = __importDefault(require("chalk"));
 const ora_1 = __importDefault(require("ora"));
 const utils_1 = require("../utils");
 async function quickstartCommand(args) {
-    console.log(chalk_1.default.bold.green('\n🚀 PumpBuddy Quickstart\n'));
+    console.log(chalk_1.default.bold.green('\n🚀 RewardAI Quickstart\n'));
     // Prompt for wallet if not provided
     let wallet = args.wallet;
     if (!wallet) {
@@ -40,7 +40,7 @@ async function quickstartCommand(args) {
     // Initialize SDK
     let spinner = (0, ora_1.default)('Initializing SDK...').start();
     try {
-        const sdk = new pumpbuddy_sdk_1.PumpBuddy({
+        const sdk = new rewardai_sdk_1.RewardAI({
             network,
             verbose: false,
         });

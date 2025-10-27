@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { parse } from 'csv-parse/sync';
-import type { Recipient } from '@beigecode/pumpbuddy-sdk';
+import type { Recipient } from 'rewardai-sdk';
 
 /**
  * Load recipients from CSV file

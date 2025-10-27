@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# PumpBuddy SDK Publishing Script
+# RewardAI SDK Publishing Script
 # This script helps you publish the SDK and CLI to npm
 
 set -e  # Exit on error
 
-echo "🚀 PumpBuddy SDK Publishing Script"
+echo "🚀 RewardAI SDK Publishing Script"
 echo "===================================="
 echo ""
 
@@ -23,7 +23,7 @@ echo ""
 # Check if we're in the right directory
 if [ ! -f "package.json" ]; then
     echo "❌ Error: package.json not found"
-    echo "Please run this script from the pumpbuddy-sdk-clean directory"
+    echo "Please run this script from the rewardai-sdk-clean directory"
     exit 1
 fi
 
@@ -48,8 +48,8 @@ echo ""
 
 # Ask for confirmation
 echo "📋 Ready to publish:"
-echo "   - @pumpbuddy/sdk@$(node -p "require('./packages/sdk/package.json').version")"
-echo "   - pumpbuddy@$(node -p "require('./packages/cli/package.json').version")"
+echo "   - rewardai-sdk@$(node -p "require('./packages/sdk/package.json').version")"
+echo "   - rewardai@$(node -p "require('./packages/cli/package.json').version")"
 echo ""
 read -p "Continue with publishing? (y/N): " -n 1 -r
 echo ""
@@ -79,11 +79,11 @@ echo ""
 echo "🎉 Success! Both packages published to npm"
 echo ""
 echo "📦 View your packages:"
-echo "   - SDK: https://www.npmjs.com/package/@pumpbuddy/sdk"
-echo "   - CLI: https://www.npmjs.com/package/pumpbuddy"
+echo "   - SDK: https://www.npmjs.com/package/rewardai-sdk"
+echo "   - CLI: https://www.npmjs.com/package/rewardai"
 echo ""
 echo "🧪 Test installation:"
-echo "   npm install @pumpbuddy/sdk"
-echo "   npm install -g pumpbuddy"
+echo "   npm install rewardai-sdk"
+echo "   npm install -g rewardai"
 echo ""
 

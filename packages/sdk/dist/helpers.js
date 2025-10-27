@@ -1,6 +1,6 @@
 "use strict";
 /**
- * PumpBuddy Helper Functions
+ * RewardAI Helper Functions
  *
  * User-friendly one-liner functions for common use cases
  */
@@ -17,7 +17,7 @@ const index_1 = require("./index");
  */
 async function rewardTopTraders(params) {
     const { wallet, tokenMint, prizes, traders, network = 'mainnet-beta' } = params;
-    const sdk = new index_1.PumpBuddy({ network });
+    const sdk = new index_1.RewardAI({ network });
     await sdk.init();
     const recipients = traders.slice(0, prizes.length).map((trader, i) => ({
         wallet: trader.address,
@@ -36,7 +36,7 @@ async function rewardTopTraders(params) {
  */
 async function airdropToHolders(params) {
     const { wallet, tokenMint, totalAmount, proportional, holders, network = 'mainnet-beta' } = params;
-    const sdk = new index_1.PumpBuddy({ network });
+    const sdk = new index_1.RewardAI({ network });
     await sdk.init();
     if (!holders || holders.length === 0) {
         throw new Error('No holders provided. Please pass holders array.');
@@ -69,7 +69,7 @@ async function airdropToHolders(params) {
  */
 async function flashGiveaway(params) {
     const { wallet, tokenMint, amount, winners, network = 'mainnet-beta' } = params;
-    const sdk = new index_1.PumpBuddy({ network });
+    const sdk = new index_1.RewardAI({ network });
     await sdk.init();
     const recipients = winners.map((winner, i) => ({
         wallet: winner,
@@ -88,7 +88,7 @@ async function flashGiveaway(params) {
  */
 async function rewardMilestone(params) {
     const { wallet, tokenMint, amount, recipients, message, network = 'mainnet-beta' } = params;
-    const sdk = new index_1.PumpBuddy({ network });
+    const sdk = new index_1.RewardAI({ network });
     await sdk.init();
     const recipientList = recipients.map((recipient, i) => {
         if (typeof recipient === 'string') {
@@ -116,7 +116,7 @@ async function rewardMilestone(params) {
  */
 async function distributeStakingRewards(params) {
     const { wallet, tokenMint, apyRate, period, stakers, network = 'mainnet-beta' } = params;
-    const sdk = new index_1.PumpBuddy({ network });
+    const sdk = new index_1.RewardAI({ network });
     await sdk.init();
     // Calculate period rate
     const periodsPerYear = {
@@ -142,7 +142,7 @@ async function distributeStakingRewards(params) {
  */
 async function rewardEngagement(params) {
     const { wallet, tokenMint, multiplier, contributors, network = 'mainnet-beta' } = params;
-    const sdk = new index_1.PumpBuddy({ network });
+    const sdk = new index_1.RewardAI({ network });
     await sdk.init();
     const recipients = contributors.map(contributor => ({
         wallet: contributor.wallet,

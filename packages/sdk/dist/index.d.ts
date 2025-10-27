@@ -1,14 +1,14 @@
-import type { PumpBuddyConfig, DistributeParams, DistributeResult, FundViaX402Params, X402Invoice } from './types';
+import type { RewardAIConfig, DistributeParams, DistributeResult, FundViaX402Params, X402Invoice } from './types';
 /**
- * PumpBuddy SDK
+ * RewardAI SDK
  *
  * Main class for distributing Pump.fun token rewards using Coinbase x402.
  */
-export declare class PumpBuddy {
+export declare class RewardAI {
     private config;
     private connection;
     private initialized;
-    constructor(config?: PumpBuddyConfig);
+    constructor(config?: RewardAIConfig);
     /**
      * Initialize the SDK
      */

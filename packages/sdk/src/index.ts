@@ -1,6 +1,6 @@
 import { Connection } from '@solana/web3.js';
 import type {
-  PumpBuddyConfig,
+  RewardAIConfig,
   DistributeParams,
   DistributeResult,
   FundViaX402Params,
@@ -17,16 +17,16 @@ import {
 import { createInvoice, verifySettlement } from './x402';
 
 /**
- * PumpBuddy SDK
+ * RewardAI SDK
  * 
  * Main class for distributing Pump.fun token rewards using Coinbase x402.
  */
-export class PumpBuddy {
-  private config: PumpBuddyConfig;
+export class RewardAI {
+  private config: RewardAIConfig;
   private connection: Connection | null = null;
   private initialized = false;
 
-  constructor(config: PumpBuddyConfig = {}) {
+  constructor(config: RewardAIConfig = {}) {
     this.config = {
       network: 'devnet',
       verbose: false,
@@ -43,7 +43,7 @@ export class PumpBuddy {
       return;
     }
 
-    this.log('Initializing PumpBuddy SDK...');
+    this.log('Initializing RewardAI SDK...');
     this.log(`Network: ${this.config.network}`);
 
     // Set up Solana connection
@@ -83,7 +83,7 @@ export class PumpBuddy {
         tokenMint: formatTokenMint(tokenMint),
         amount,
         recipient: toVault,
-        description: description || 'Fund PumpBuddy vault',
+        description: description || 'Fund RewardAI vault',
       },
       this.config.network || 'devnet'
     );

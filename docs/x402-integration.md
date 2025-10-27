@@ -1,8 +1,8 @@
-# PumpBuddy x402 Integration Guide
+# RewardAI x402 Integration Guide
 
 ## Overview
 
-PumpBuddy leverages [Coinbase's x402 protocol](https://github.com/coinbase/x402) to facilitate secure, HTTP-based payments for distributing Pump.fun creator rewards to token holders on Solana.
+RewardAI leverages [Coinbase's x402 protocol](https://github.com/coinbase/x402) to facilitate secure, HTTP-based payments for distributing Pump.fun creator rewards to token holders on Solana.
 
 ## What is x402?
 
@@ -14,7 +14,7 @@ x402 is **a payments protocol for the internet, built on HTTP**. It provides:
 - ✅ **Facilitator pattern** for easy integration without running blockchain nodes
 - ✅ **Payment verification & settlement** handled by third-party facilitators
 
-### Why x402 for PumpBuddy?
+### Why x402 for RewardAI?
 
 1. **No Wallet Infrastructure**: Creators don't need to manage private keys or run nodes
 2. **HTTP-Based**: Works with standard web servers and APIs
@@ -22,21 +22,21 @@ x402 is **a payments protocol for the internet, built on HTTP**. It provides:
 4. **Flexible**: Supports multiple payment schemes and chains
 5. **Production-Ready**: Built and maintained by Coinbase
 
-## x402 Protocol Flow in PumpBuddy
+## x402 Protocol Flow in RewardAI
 
 ### Step 1: Resource Server Returns Payment Requirements
 
-When a creator wants to distribute rewards, PumpBuddy acts as a **resource server** and returns a `402 Payment Required` response:
+When a creator wants to distribute rewards, RewardAI acts as a **resource server** and returns a `402 Payment Required` response:
 
 ```typescript
-// PumpBuddy creates payment requirements
+// RewardAI creates payment requirements
 const requirements = {
   scheme: 'exact',              // Fixed-amount payment
   network: 'solana-devnet',     // Solana devnet (or mainnet)
   maxAmountRequired: '1000',    // Amount in token base units
   resource: '/distribute/TOKEN_MINT',
   description: 'Fund distribution vault for 50 recipients',
-  payTo: 'VAULT_ADDRESS',       // PumpBuddy vault address
+  payTo: 'VAULT_ADDRESS',       // RewardAI vault address
   asset: 'TOKEN_MINT_ADDRESS',  // SPL token address
   maxTimeoutSeconds: 300,       // 5 minutes
   extra: {
@@ -71,9 +71,9 @@ const paymentPayload = {
 const xPaymentHeader = btoa(JSON.stringify(paymentPayload));
 ```
 
-### Step 3: PumpBuddy Verifies Payment
+### Step 3: RewardAI Verifies Payment
 
-PumpBuddy sends the payment to an **x402 facilitator** for verification:
+RewardAI sends the payment to an **x402 facilitator** for verification:
 
 ```typescript
 POST https://x402-facilitator.coinbase.com/verify
@@ -94,7 +94,7 @@ Content-Type: application/json
 
 ### Step 4: Facilitator Settles Payment
 
-If valid, PumpBuddy requests settlement:
+If valid, RewardAI requests settlement:
 
 ```typescript
 POST https://x402-facilitator.coinbase.com/settle
@@ -115,9 +115,9 @@ Content-Type: application/json
 }
 ```
 
-### Step 5: PumpBuddy Distributes Rewards
+### Step 5: RewardAI Distributes Rewards
 
-With payment confirmed, PumpBuddy executes the distribution and returns:
+With payment confirmed, RewardAI executes the distribution and returns:
 
 ```typescript
 HTTP/1.1 200 OK
@@ -132,14 +132,14 @@ Content-Type: application/json
 }
 ```
 
-## PumpBuddy SDK Implementation
+## RewardAI SDK Implementation
 
 ### Creating an Invoice
 
 ```typescript
-import { PumpBuddy } from '@pumpbuddy/sdk';
+import { RewardAI } from '@rewardai/sdk';
 
-const sdk = new PumpBuddy({ network: 'devnet' });
+const sdk = new RewardAI({ network: 'devnet' });
 await sdk.init();
 
 // Create x402 invoice for funding distribution
@@ -173,10 +173,10 @@ if (verified) {
 
 ## x402 Client API
 
-PumpBuddy provides a low-level x402 client:
+RewardAI provides a low-level x402 client:
 
 ```typescript
-import { X402Client } from '@pumpbuddy/sdk';
+import { X402Client } from '@rewardai/sdk';
 
 const client = new X402Client(
   'https://x402-facilitator.coinbase.com',
@@ -207,7 +207,7 @@ const settlement = await client.settlePayment(
 
 ### Current: `exact` Scheme
 
-Fixed-amount payments (what PumpBuddy uses):
+Fixed-amount payments (what RewardAI uses):
 
 ```typescript
 {
@@ -225,7 +225,7 @@ x402 supports extensible schemes:
 - **`streaming`**: Continuous micro-payments over time
 - **`conditional`**: Payments based on conditions
 
-PumpBuddy can evolve to support these as needed.
+RewardAI can evolve to support these as needed.
 
 ## Facilitator Endpoints
 
@@ -288,7 +288,7 @@ curl -X POST https://x402-facilitator.coinbase.com/settle \
 ### Private Key Management
 
 - ✅ **Creators**: Sign payments with their Pump.fun wallet (never shared)
-- ✅ **PumpBuddy**: Only holds distribution vault keys (isolated per distribution)
+- ✅ **RewardAI**: Only holds distribution vault keys (isolated per distribution)
 - ✅ **Facilitator**: Never has access to private keys
 
 ### On-Chain Verification
@@ -313,7 +313,7 @@ PUMPBUDDY_VAULT_ADDRESS=YourVaultAddress...
 ### SDK Configuration
 
 ```typescript
-const sdk = new PumpBuddy({
+const sdk = new RewardAI({
   network: 'devnet',
   x402FacilitatorUrl: process.env.X402_FACILITATOR_URL,
   vaultAddress: process.env.PUMPBUDDY_VAULT_ADDRESS
@@ -327,7 +327,7 @@ const sdk = new PumpBuddy({
 Use x402 devnet facilitator:
 
 ```typescript
-const sdk = new PumpBuddy({
+const sdk = new RewardAI({
   network: 'devnet',
   x402FacilitatorUrl: 'https://devnet.x402-facilitator.coinbase.com'
 });
@@ -376,7 +376,7 @@ const invoice = await createX402Invoice({
 - **x402 TypeScript SDK**: https://github.com/coinbase/x402/tree/main/typescript
 - **x402 Examples**: https://github.com/coinbase/x402/tree/main/examples
 - **Solana SPL Tokens**: https://spl.solana.com/token
-- **PumpBuddy Docs**: [/packages/sdk/README.md](/packages/sdk/README.md)
+- **RewardAI Docs**: [/packages/sdk/README.md](/packages/sdk/README.md)
 
 ## Support
 
@@ -384,9 +384,9 @@ For x402-specific questions:
 - GitHub Issues: https://github.com/coinbase/x402/issues
 - x402 Docs: https://x402.org
 
-For PumpBuddy questions:
-- GitHub Issues: https://github.com/beigecode/pumpbuddy-sdk/issues
-- Discord: https://discord.gg/pumpbuddy
+For RewardAI questions:
+- GitHub Issues: https://github.com/beigecode/rewardai-sdk/issues
+- Discord: https://discord.gg/rewardai
 
 ---
 

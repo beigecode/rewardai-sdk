@@ -1,17 +1,17 @@
-# PumpBuddy SDK - GitHub Repository Structure (SDK Only)
+# RewardAI SDK - GitHub Repository Structure (SDK Only)
 
 ## Repository Overview
 
-**PumpBuddy SDK** - A TypeScript SDK and CLI for distributing Pump.fun creator rewards to token holders using [Coinbase's x402 payment protocol](https://github.com/coinbase/x402) on Solana.
+**RewardAI SDK** - A TypeScript SDK and CLI for distributing Pump.fun creator rewards to token holders using [Coinbase's x402 payment protocol](https://github.com/coinbase/x402) on Solana.
 
 **NPM Packages:**
-- `@pumpbuddy/sdk` - Core TypeScript SDK
-- `pumpbuddy` - CLI tool for command-line distributions
+- `@rewardai/sdk` - Core TypeScript SDK
+- `rewardai` - CLI tool for command-line distributions
 
 ## Minimal Repository Structure
 
 ```
-pumpbuddy-sdk/
+rewardai-sdk/
 ├── .github/
 │   ├── workflows/
 │   │   ├── ci.yml                  # Test, lint, build
@@ -25,7 +25,7 @@ pumpbuddy-sdk/
 │   └── CODEOWNERS
 │
 ├── packages/
-│   ├── sdk/                        # @pumpbuddy/sdk
+│   ├── sdk/                        # @rewardai/sdk
 │   │   ├── src/
 │   │   │   ├── index.ts            # Main SDK exports
 │   │   │   ├── types.ts            # TypeScript types
@@ -36,7 +36,7 @@ pumpbuddy-sdk/
 │   │   ├── tsconfig.json
 │   │   └── README.md
 │   │
-│   └── cli/                        # pumpbuddy CLI
+│   └── cli/                        # rewardai CLI
 │       ├── src/
 │       │   ├── index.ts            # CLI entry point
 │       │   ├── commands/
@@ -92,10 +92,10 @@ pumpbuddy-sdk/
 ### 1. Root README.md
 
 ```markdown
-# PumpBuddy SDK
+# RewardAI SDK
 
-[![npm version](https://badge.fury.io/js/%40pumpbuddy%2Fsdk.svg)](https://www.npmjs.com/package/@pumpbuddy/sdk)
-[![Build Status](https://github.com/beigecode/pumpbuddy-sdk/workflows/CI/badge.svg)](https://github.com/beigecode/pumpbuddy-sdk/actions)
+[![npm version](https://badge.fury.io/js/%40rewardai%2Fsdk.svg)](https://www.npmjs.com/package/@rewardai/sdk)
+[![Build Status](https://github.com/beigecode/rewardai-sdk/workflows/CI/badge.svg)](https://github.com/beigecode/rewardai-sdk/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Built with x402](https://img.shields.io/badge/Built%20with-x402-00FF7F)](https://github.com/coinbase/x402)
 
@@ -116,18 +116,18 @@ pumpbuddy-sdk/
 
 ```bash
 # Install SDK
-npm install @pumpbuddy/sdk
+npm install @rewardai/sdk
 
 # Install CLI globally
-npm install -g pumpbuddy
+npm install -g rewardai
 ```
 
 ### SDK Usage
 
 ```typescript
-import { PumpBuddy } from '@pumpbuddy/sdk';
+import { RewardAI } from '@rewardai/sdk';
 
-const sdk = new PumpBuddy({ network: 'devnet' });
+const sdk = new RewardAI({ network: 'devnet' });
 await sdk.init();
 
 // Fund via x402
@@ -153,17 +153,17 @@ const result = await sdk.distribute({
 
 ```bash
 # Interactive quickstart
-pumpbuddy quickstart --wallet YOUR_WALLET
+rewardai quickstart --wallet YOUR_WALLET
 
 # Distribute rewards (dry-run)
-pumpbuddy distribute \
+rewardai distribute \
   --wallet YOUR_WALLET \
   --token TOKEN_MINT \
   --recipients ./recipients.csv \
   --dry-run
 
 # Real distribution
-pumpbuddy distribute \
+rewardai distribute \
   --wallet YOUR_WALLET \
   --token TOKEN_MINT \
   --recipients ./recipients.csv \
@@ -172,7 +172,7 @@ pumpbuddy distribute \
 
 ## x402 Payment Protocol
 
-PumpBuddy leverages [Coinbase's x402](https://github.com/coinbase/x402) for secure, HTTP-based blockchain payments:
+RewardAI leverages [Coinbase's x402](https://github.com/coinbase/x402) for secure, HTTP-based blockchain payments:
 
 - **No wallet infrastructure** - Use x402 facilitator for verification & settlement
 - **Cryptographic security** - All payments verified on-chain
@@ -193,15 +193,15 @@ PumpBuddy leverages [Coinbase's x402](https://github.com/coinbase/x402) for secu
 
 | Package | Version | Description |
 |---------|---------|-------------|
-| [@pumpbuddy/sdk](packages/sdk) | [![npm](https://img.shields.io/npm/v/@pumpbuddy/sdk.svg)](https://www.npmjs.com/package/@pumpbuddy/sdk) | Core TypeScript SDK |
-| [pumpbuddy](packages/cli) | [![npm](https://img.shields.io/npm/v/pumpbuddy.svg)](https://www.npmjs.com/package/pumpbuddy) | CLI tool |
+| [@rewardai/sdk](packages/sdk) | [![npm](https://img.shields.io/npm/v/@rewardai/sdk.svg)](https://www.npmjs.com/package/@rewardai/sdk) | Core TypeScript SDK |
+| [rewardai](packages/cli) | [![npm](https://img.shields.io/npm/v/rewardai.svg)](https://www.npmjs.com/package/rewardai) | CLI tool |
 
 ## Development
 
 ```bash
 # Clone repository
-git clone https://github.com/beigecode/pumpbuddy-sdk.git
-cd pumpbuddy-sdk
+git clone https://github.com/beigecode/rewardai-sdk.git
+cd rewardai-sdk
 
 # Install dependencies
 npm install
@@ -223,7 +223,7 @@ We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guid
 
 ## License
 
-MIT © PumpBuddy
+MIT © RewardAI
 
 ## Acknowledgments
 
@@ -240,13 +240,13 @@ MIT © PumpBuddy
 
 ```json
 {
-  "name": "pumpbuddy-monorepo",
+  "name": "rewardai-monorepo",
   "version": "0.2.0",
   "private": true,
   "description": "Distribute Pump.fun rewards via x402",
   "repository": {
     "type": "git",
-    "url": "https://github.com/beigecode/pumpbuddy-sdk.git"
+    "url": "https://github.com/beigecode/rewardai-sdk.git"
   },
   "workspaces": [
     "packages/*"
@@ -271,7 +271,7 @@ MIT © PumpBuddy
     "@types/jest": "^29.5.11"
   },
   "keywords": [
-    "pumpbuddy",
+    "rewardai",
     "pump.fun",
     "solana",
     "x402",
@@ -282,7 +282,7 @@ MIT © PumpBuddy
     "sdk",
     "cli"
   ],
-  "author": "PumpBuddy",
+  "author": "RewardAI",
   "license": "MIT"
 }
 ```
@@ -376,22 +376,22 @@ jobs:
 #### packages/sdk/README.md
 
 ```markdown
-# @pumpbuddy/sdk
+# @rewardai/sdk
 
 TypeScript SDK for distributing Pump.fun token rewards via Coinbase x402.
 
 ## Installation
 
 ```bash
-npm install @pumpbuddy/sdk
+npm install @rewardai/sdk
 ```
 
 ## Quick Start
 
 ```typescript
-import { PumpBuddy } from '@pumpbuddy/sdk';
+import { RewardAI } from '@rewardai/sdk';
 
-const sdk = new PumpBuddy({ network: 'devnet' });
+const sdk = new RewardAI({ network: 'devnet' });
 await sdk.init();
 
 // Distribute rewards
@@ -409,24 +409,24 @@ await sdk.distribute({
 #### packages/cli/README.md
 
 ```markdown
-# pumpbuddy
+# rewardai
 
 Command-line tool for distributing Pump.fun rewards.
 
 ## Installation
 
 ```bash
-npm install -g pumpbuddy
+npm install -g rewardai
 ```
 
 ## Usage
 
 ```bash
 # Quick start
-pumpbuddy quickstart
+rewardai quickstart
 
 # Distribute rewards
-pumpbuddy distribute \
+rewardai distribute \
   --wallet YOUR_WALLET \
   --token TOKEN_MINT \
   --recipients ./recipients.csv \
@@ -492,7 +492,7 @@ npm publish --access public
 ```json
 // packages/sdk/package.json
 {
-  "name": "@pumpbuddy/sdk",
+  "name": "@rewardai/sdk",
   "version": "0.2.0",
   "publishConfig": {
     "access": "public"
@@ -501,10 +501,10 @@ npm publish --access public
 
 // packages/cli/package.json
 {
-  "name": "pumpbuddy",
+  "name": "rewardai",
   "version": "0.2.0",
   "bin": {
-    "pumpbuddy": "./dist/index.js"
+    "rewardai": "./dist/index.js"
   }
 }
 ```
@@ -523,7 +523,7 @@ npm publish --access public
 
 ### GitHub Configuration
 
-- [ ] Create repository: `beigecode/pumpbuddy-sdk`
+- [ ] Create repository: `beigecode/rewardai-sdk`
 - [ ] Add description: "Distribute Pump.fun rewards via Coinbase x402"
 - [ ] Add topics: `solana`, `pump-fun`, `x402`, `sdk`, `cli`, `coinbase`
 - [ ] Enable GitHub Actions
@@ -543,7 +543,7 @@ npm publish --access public
 ### npm Publishing
 
 - [ ] Verify package names available
-- [ ] Set up npm organization (if using `@pumpbuddy/`)
+- [ ] Set up npm organization (if using `@rewardai/`)
 - [ ] Test local install of packages
 - [ ] Publish initial versions
 - [ ] Verify packages work when installed
@@ -591,11 +591,11 @@ These marketing website files should NOT be in the SDK repository:
 ## Example File Structure (Clean SDK Repo)
 
 ```
-pumpbuddy-sdk/                    # Root
+rewardai-sdk/                    # Root
 │
 ├── packages/                     # Monorepo packages
-│   ├── sdk/                      # @pumpbuddy/sdk
-│   └── cli/                      # pumpbuddy
+│   ├── sdk/                      # @rewardai/sdk
+│   └── cli/                      # rewardai
 │
 ├── examples/                     # Usage examples
 │   ├── basic-distribution.ts

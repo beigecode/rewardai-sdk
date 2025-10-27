@@ -1,7 +1,7 @@
 {
-  "name": "@beigecode/pumpbuddy-sdk",
+  "name": "rewardai-sdk",
   "version": "0.1.0",
-  "description": "PumpBuddy SDK for distributing Pump.fun token rewards via Coinbase x402",
+  "description": "RewardAI SDK for distributing Pump.fun token rewards via Coinbase x402",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
@@ -13,14 +13,14 @@
     "clean": "rm -rf dist"
   },
   "keywords": [
-    "pumpbuddy",
+    "rewardai",
     "pump.fun",
     "solana",
     "x402",
     "crypto",
     "rewards"
   ],
-  "author": "PumpBuddy",
+  "author": "RewardAI",
   "license": "MIT",
   "dependencies": {
     "@solana/web3.js": "^1.95.8",

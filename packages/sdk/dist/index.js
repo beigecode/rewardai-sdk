@@ -14,15 +14,15 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PumpBuddy = void 0;
+exports.RewardAI = void 0;
 const solana_1 = require("./solana");
 const x402_1 = require("./x402");
 /**
- * PumpBuddy SDK
+ * RewardAI SDK
  *
  * Main class for distributing Pump.fun token rewards using Coinbase x402.
  */
-class PumpBuddy {
+class RewardAI {
     constructor(config = {}) {
         this.connection = null;
         this.initialized = false;
@@ -40,7 +40,7 @@ class PumpBuddy {
             this.log('SDK already initialized');
             return;
         }
-        this.log('Initializing PumpBuddy SDK...');
+        this.log('Initializing RewardAI SDK...');
         this.log(`Network: ${this.config.network}`);
         // Set up Solana connection
         this.connection = (0, solana_1.getConnection)(this.config);
@@ -71,7 +71,7 @@ class PumpBuddy {
             tokenMint: (0, solana_1.formatTokenMint)(tokenMint),
             amount,
             recipient: toVault,
-            description: description || 'Fund PumpBuddy vault',
+            description: description || 'Fund RewardAI vault',
         }, this.config.network || 'devnet');
         this.log('\n📋 Next steps:');
         this.log(`1. Pay the invoice at: ${invoice.paymentUrl || 'N/A'}`);
@@ -178,7 +178,7 @@ class PumpBuddy {
         console.log('└─────────────────────────────────────────────────────────────┘\n');
     }
 }
-exports.PumpBuddy = PumpBuddy;
+exports.RewardAI = RewardAI;
 // Export types
 __exportStar(require("./types"), exports);
 // Export helper functions for common use cases

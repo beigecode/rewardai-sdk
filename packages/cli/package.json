@@ -1,10 +1,10 @@
 {
-  "name": "@beigecode/pumpbuddy",
+  "name": "rewardai",
   "version": "0.1.0",
-  "description": "PumpBuddy CLI for distributing Pump.fun token rewards",
+  "description": "RewardAI CLI for distributing Pump.fun token rewards",
   "main": "./dist/index.js",
   "bin": {
-    "pumpbuddy": "./dist/index.js"
+    "rewardai": "./dist/index.js"
   },
   "files": [
     "dist"
@@ -15,15 +15,15 @@
     "clean": "rm -rf dist"
   },
   "keywords": [
-    "pumpbuddy",
+    "rewardai",
     "pump.fun",
     "solana",
     "cli"
   ],
-  "author": "PumpBuddy",
+  "author": "RewardAI",
   "license": "MIT",
   "dependencies": {
-    "@beigecode/pumpbuddy-sdk": "*",
+    "rewardai-sdk": "*",
     "yargs": "^17.7.2",
     "inquirer": "^9.2.12",
     "chalk": "^5.3.0",

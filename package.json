@@ -1,11 +1,11 @@
 {
-  "name": "pumpbuddy-monorepo",
+  "name": "rewardai-monorepo",
   "version": "0.2.0",
   "private": true,
   "description": "Distribute Pump.fun rewards via Coinbase x402",
   "repository": {
     "type": "git",
-    "url": "https://github.com/beigecode/pumpbuddy-sdk.git"
+    "url": "https://github.com/beigecode/rewardai-sdk.git"
   },
   "workspaces": [
     "packages/*"
@@ -20,7 +20,7 @@
     "typescript": "^5.7.2"
   },
   "keywords": [
-    "pumpbuddy",
+    "rewardai",
     "pump.fun",
     "solana",
     "x402",
@@ -31,6 +31,6 @@
     "sdk",
     "cli"
   ],
-  "author": "PumpBuddy",
+  "author": "RewardAI",
   "license": "MIT"
 }

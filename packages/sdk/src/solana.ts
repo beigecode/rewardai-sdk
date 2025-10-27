@@ -1,5 +1,5 @@
 import { Connection, PublicKey, clusterApiUrl } from '@solana/web3.js';
-import type { PumpBuddyConfig } from './types';
+import type { RewardAIConfig } from './types';
 
 /**
  * Validate a Solana wallet address
@@ -16,7 +16,7 @@ export function isValidSolanaAddress(address: string): boolean {
 /**
  * Get Solana RPC connection
  */
-export function getConnection(config: PumpBuddyConfig): Connection {
+export function getConnection(config: RewardAIConfig): Connection {
   const endpoint =
     config.rpcEndpoint || clusterApiUrl(config.network || 'devnet');
   return new Connection(endpoint, 'confirmed');

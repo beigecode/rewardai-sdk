@@ -1,5 +1,5 @@
 import { Connection } from '@solana/web3.js';
-import type { PumpBuddyConfig } from './types';
+import type { RewardAIConfig } from './types';
 /**
  * Validate a Solana wallet address
  */
@@ -7,7 +7,7 @@ export declare function isValidSolanaAddress(address: string): boolean;
 /**
  * Get Solana RPC connection
  */
-export declare function getConnection(config: PumpBuddyConfig): Connection;
+export declare function getConnection(config: RewardAIConfig): Connection;
 /**
  * Verify Solana connection
  */

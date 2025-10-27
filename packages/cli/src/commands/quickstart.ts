@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { PumpBuddy } from '@beigecode/pumpbuddy-sdk';
+import { RewardAI } from 'rewardai-sdk';
 import inquirer from 'inquirer';
 import chalk from 'chalk';
 import ora from 'ora';
@@ -12,7 +12,7 @@ interface QuickstartArgs {
 }
 
 export async function quickstartCommand(args: QuickstartArgs): Promise<void> {
-  console.log(chalk.bold.green('\n🚀 PumpBuddy Quickstart\n'));
+  console.log(chalk.bold.green('\n🚀 RewardAI Quickstart\n'));
 
   // Prompt for wallet if not provided
   let wallet = args.wallet;
@@ -47,7 +47,7 @@ export async function quickstartCommand(args: QuickstartArgs): Promise<void> {
   let spinner = ora('Initializing SDK...').start();
   
   try {
-    const sdk = new PumpBuddy({
+    const sdk = new RewardAI({
       network,
       verbose: false,
     });

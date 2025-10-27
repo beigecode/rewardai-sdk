@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { PumpBuddy } from '@beigecode/pumpbuddy-sdk';
+import { RewardAI } from 'rewardai-sdk';
 import chalk from 'chalk';
 import ora from 'ora';
 import { loadRecipientsFromCSV, validateArgs } from '../utils';
@@ -15,7 +15,7 @@ interface DistributeArgs {
 }
 
 export async function distributeCommand(args: DistributeArgs): Promise<void> {
-  console.log(chalk.bold.green('\n🎁 PumpBuddy Distribute\n'));
+  console.log(chalk.bold.green('\n🎁 RewardAI Distribute\n'));
 
   // Validate required arguments
   try {
@@ -55,7 +55,7 @@ export async function distributeCommand(args: DistributeArgs): Promise<void> {
 
     // Initialize SDK
     spinner = ora('Initializing SDK...').start();
-    const sdk = new PumpBuddy({
+    const sdk = new RewardAI({
       network,
       verbose: false,
     });

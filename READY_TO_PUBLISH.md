@@ -1,6 +1,6 @@
 # ✅ Ready to Publish!
 
-All build issues have been resolved. Your PumpBuddy SDK packages are ready for npm.
+All build issues have been resolved. Your RewardAI SDK packages are ready for npm.
 
 ## 🎉 What Was Fixed
 
@@ -23,17 +23,17 @@ All build issues have been resolved. Your PumpBuddy SDK packages are ready for n
 
 ## 📦 Packages Ready to Publish
 
-### 1. @pumpbuddy/sdk
+### 1. rewardai-sdk
 - **Version**: 0.1.0
 - **Size**: 68K
 - **Description**: TypeScript SDK for distributing Pump.fun rewards via x402
-- **Install command**: `npm install @pumpbuddy/sdk`
+- **Install command**: `npm install rewardai-sdk`
 
-### 2. pumpbuddy
+### 2. rewardai
 - **Version**: 0.1.0  
 - **Size**: 20K
 - **Description**: CLI tool for reward distributions
-- **Install command**: `npm install -g pumpbuddy`
+- **Install command**: `npm install -g rewardai`
 
 ## 🚀 Quick Publish
 
@@ -48,8 +48,8 @@ The script will:
 2. ✅ Install dependencies (already done)
 3. ✅ Build packages (already done)
 4. Ask for confirmation
-5. Publish @pumpbuddy/sdk
-6. Publish pumpbuddy CLI
+5. Publish rewardai-sdk
+6. Publish rewardai CLI
 
 ## 📋 Manual Publish (Alternative)
 
@@ -67,28 +67,28 @@ npm publish --access public
 
 ## ⚠️ Important Notes
 
-1. **Package Names**: If `@pumpbuddy/sdk` or `pumpbuddy` are already taken on npm, you'll need to rename them in the package.json files.
+1. **Package Names**: If `rewardai-sdk` or `rewardai` are already taken on npm, you'll need to rename them in the package.json files.
 
 2. **First Publish**: The first publish might take a few minutes to appear on npmjs.com.
 
 3. **Verification**: After publishing, verify at:
-   - https://www.npmjs.com/package/@pumpbuddy/sdk
-   - https://www.npmjs.com/package/pumpbuddy
+   - https://www.npmjs.com/package/rewardai-sdk
+   - https://www.npmjs.com/package/rewardai
 
 4. **Testing**: Test the published packages:
    ```bash
    # Test SDK
-   npm install @pumpbuddy/sdk
+   npm install rewardai-sdk
    
    # Test CLI
-   npm install -g pumpbuddy
-   pumpbuddy --version
+   npm install -g rewardai
+   rewardai --version
    ```
 
 ## 🔧 What's Included
 
-### SDK Package (@pumpbuddy/sdk)
-- `PumpBuddy` class for SDK initialization
+### SDK Package (rewardai-sdk)
+- `RewardAI` class for SDK initialization
 - `fundViaX402()` for x402 payment integration
 - `distribute()` for token distributions
 - `getBalance()` for wallet balance checks  
@@ -96,9 +96,9 @@ npm publish --access public
 - Full TypeScript type definitions
 - Solana & x402 integration
 
-### CLI Package (pumpbuddy)
-- `pumpbuddy quickstart` command
-- `pumpbuddy distribute` command
+### CLI Package (rewardai)
+- `rewardai quickstart` command
+- `rewardai distribute` command
 - Interactive prompts with inquirer
 - Colorful CLI output with chalk
 - Loading spinners with ora
@@ -116,7 +116,7 @@ npm publish --access public
 
 **Package name taken?**
 - Update names in `packages/*/package.json`
-- Try: `@beigecode/pumpbuddy-sdk` or `@beigecode/pumpbuddy`
+- Try: `@beigecode/rewardai-sdk` and `@beigecode/rewardai`
 
 **Permission denied?**
 - Run `npm login` again
@@ -146,6 +146,6 @@ npm publish --access public
 
 **You're all set!** Run `./publish.sh` to publish both packages to npm.
 
-**Repository**: https://github.com/beigecode/pumpbuddy-sdk  
+**Repository**: https://github.com/beigecode/rewardai-sdk  
 **npm Profile**: https://www.npmjs.com/~beigecode
 

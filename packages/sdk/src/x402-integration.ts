@@ -1,5 +1,5 @@
 /**
- * x402 Protocol Integration for PumpBuddy
+ * x402 Protocol Integration for RewardAI
  * 
  * Leverages Coinbase's x402 payment protocol to facilitate reward distributions
  * from Pump.fun creator wallets to token holders.
@@ -59,7 +59,7 @@ export interface X402SettlementResponse {
 }
 
 /**
- * x402 Client for PumpBuddy SDK
+ * x402 Client for RewardAI SDK
  * 
  * This client wraps the x402 protocol to:
  * 1. Create payment requirements for reward distributions
@@ -97,7 +97,7 @@ export class X402Client {
       network: networkId,
       maxAmountRequired: amount.toString(),
       resource: `/distribute/${tokenMint}`,
-      description: description || 'Fund PumpBuddy distribution vault',
+      description: description || 'Fund RewardAI distribution vault',
       mimeType: 'application/json',
       outputSchema: {
         type: 'object',

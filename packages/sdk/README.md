@@ -1,20 +1,20 @@
-# @pumpbuddy/sdk
+# @rewardai/sdk
 
 TypeScript SDK for distributing Pump.fun token rewards using Coinbase x402.
 
 ## Installation
 
 ```bash
-npm install @pumpbuddy/sdk
+npm install @rewardai/sdk
 ```
 
 ## Quick Start
 
 ```typescript
-import { PumpBuddy } from '@pumpbuddy/sdk';
+import { RewardAI } from '@rewardai/sdk';
 
 // Initialize
-const sdk = new PumpBuddy({
+const sdk = new RewardAI({
   network: 'devnet',
   verbose: true,
 });
@@ -37,13 +37,13 @@ console.log(result);
 
 ## API Reference
 
-### `PumpBuddy`
+### `RewardAI`
 
 Main SDK class.
 
-#### `constructor(config?: PumpBuddyConfig)`
+#### `constructor(config?: RewardAIConfig)`
 
-Create a new PumpBuddy instance.
+Create a new RewardAI instance.
 
 **Parameters:**
 - `config.network` - Solana network ('mainnet-beta', 'devnet', 'testnet')
@@ -83,7 +83,7 @@ User-friendly one-liners for common use cases:
 Reward top traders from a competition:
 
 ```typescript
-import { rewardTopTraders } from '@beigecode/pumpbuddy-sdk';
+import { rewardTopTraders } from '@beigecode/rewardai-sdk';
 
 await rewardTopTraders({
   wallet: 'YOUR_CREATOR_WALLET',
@@ -101,7 +101,7 @@ await rewardTopTraders({
 Distribute tokens proportionally to all holders:
 
 ```typescript
-import { airdropToHolders } from '@beigecode/pumpbuddy-sdk';
+import { airdropToHolders } from '@beigecode/rewardai-sdk';
 
 await airdropToHolders({
   wallet: 'YOUR_CREATOR_WALLET',
@@ -120,7 +120,7 @@ await airdropToHolders({
 Run instant flash giveaways:
 
 ```typescript
-import { flashGiveaway } from '@beigecode/pumpbuddy-sdk';
+import { flashGiveaway } from '@beigecode/rewardai-sdk';
 
 await flashGiveaway({
   wallet: 'YOUR_CREATOR_WALLET',
@@ -135,7 +135,7 @@ await flashGiveaway({
 Celebrate milestones with rewards:
 
 ```typescript
-import { rewardMilestone } from '@beigecode/pumpbuddy-sdk';
+import { rewardMilestone } from '@beigecode/rewardai-sdk';
 
 await rewardMilestone({
   wallet: 'YOUR_CREATOR_WALLET',
@@ -151,7 +151,7 @@ await rewardMilestone({
 Automated staking rewards:
 
 ```typescript
-import { distributeStakingRewards } from '@beigecode/pumpbuddy-sdk';
+import { distributeStakingRewards } from '@beigecode/rewardai-sdk';
 
 await distributeStakingRewards({
   wallet: 'YOUR_STAKING_VAULT',
@@ -170,7 +170,7 @@ await distributeStakingRewards({
 Reward community engagement:
 
 ```typescript
-import { rewardEngagement } from '@beigecode/pumpbuddy-sdk';
+import { rewardEngagement } from '@beigecode/rewardai-sdk';
 
 await rewardEngagement({
   wallet: 'YOUR_CREATOR_WALLET',

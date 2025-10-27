@@ -1,7 +1,7 @@
-# PumpBuddy SDK
+# RewardAI SDK
 
-[![npm version](https://badge.fury.io/js/%40beigecode%2Fpumpbuddy-sdk.svg)](https://www.npmjs.com/package/@beigecode/pumpbuddy-sdk)
-[![Build Status](https://github.com/beigecode/pumpbuddy-sdk/workflows/CI/badge.svg)](https://github.com/beigecode/pumpbuddy-sdk/actions)
+[![npm version](https://badge.fury.io/js/%40beigecode%2Frewardai-sdk.svg)](https://www.npmjs.com/package/@beigecode/rewardai-sdk)
+[![Build Status](https://github.com/beigecode/rewardai-sdk/workflows/CI/badge.svg)](https://github.com/beigecode/rewardai-sdk/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Built with x402](https://img.shields.io/badge/Built%20with-x402-00FF7F)](https://github.com/coinbase/x402)
 
@@ -22,18 +22,18 @@
 
 ```bash
 # Install SDK
-npm install @beigecode/pumpbuddy-sdk
+npm install @beigecode/rewardai-sdk
 
 # Install CLI globally
-npm install -g @beigecode/pumpbuddy
+npm install -g @beigecode/rewardai
 ```
 
 ### SDK Usage
 
 ```typescript
-import { PumpBuddy } from '@pumpbuddy/sdk';
+import { RewardAI } from '@rewardai/sdk';
 
-const sdk = new PumpBuddy({ network: 'devnet' });
+const sdk = new RewardAI({ network: 'devnet' });
 await sdk.init();
 
 // Fund via x402
@@ -59,10 +59,10 @@ const result = await sdk.distribute({
 
 ```bash
 # Interactive quickstart
-pumpbuddy quickstart --wallet YOUR_WALLET
+rewardai quickstart --wallet YOUR_WALLET
 
 # Distribute rewards (dry-run)
-pumpbuddy distribute \
+rewardai distribute \
   --wallet YOUR_WALLET \
   --token TOKEN_MINT \
   --recipients ./recipients.csv \
@@ -71,7 +71,7 @@ pumpbuddy distribute \
 
 ## x402 Payment Protocol
 
-PumpBuddy leverages [Coinbase's x402](https://github.com/coinbase/x402) for secure HTTP-based blockchain payments.
+RewardAI leverages [Coinbase's x402](https://github.com/coinbase/x402) for secure HTTP-based blockchain payments.
 
 [Read the x402 Integration Guide →](docs/x402-integration.md)
 
@@ -79,15 +79,15 @@ PumpBuddy leverages [Coinbase's x402](https://github.com/coinbase/x402) for secu
 
 | Package | Version | Description |
 |---------|---------|-------------|
-| [@pumpbuddy/sdk](packages/sdk) | [![npm](https://img.shields.io/npm/v/@pumpbuddy/sdk.svg)](https://www.npmjs.com/package/@pumpbuddy/sdk) | Core TypeScript SDK |
-| [pumpbuddy](packages/cli) | [![npm](https://img.shields.io/npm/v/pumpbuddy.svg)](https://www.npmjs.com/package/pumpbuddy) | CLI tool |
+| [@rewardai/sdk](packages/sdk) | [![npm](https://img.shields.io/npm/v/@rewardai/sdk.svg)](https://www.npmjs.com/package/@rewardai/sdk) | Core TypeScript SDK |
+| [rewardai](packages/cli) | [![npm](https://img.shields.io/npm/v/rewardai.svg)](https://www.npmjs.com/package/rewardai) | CLI tool |
 
 ## Development
 
 ```bash
 # Clone repository
-git clone https://github.com/beigecode/pumpbuddy-sdk.git
-cd pumpbuddy-sdk
+git clone https://github.com/beigecode/rewardai-sdk.git
+cd rewardai-sdk
 
 # Install dependencies
 npm install
@@ -112,7 +112,7 @@ We welcome contributions! Please open an issue or PR.
 
 ## License
 
-MIT © PumpBuddy
+MIT © RewardAI
 
 ## Acknowledgments
 

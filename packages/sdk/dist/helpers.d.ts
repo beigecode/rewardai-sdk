@@ -1,5 +1,5 @@
 /**
- * PumpBuddy Helper Functions
+ * RewardAI Helper Functions
  *
  * User-friendly one-liner functions for common use cases
  */

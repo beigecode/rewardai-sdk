@@ -1,4 +1,4 @@
-# Publishing PumpBuddy SDK to npm
+# Publishing RewardAI SDK to npm
 
 This guide walks you through publishing both the SDK and CLI packages to npm.
 
@@ -7,8 +7,8 @@ This guide walks you through publishing both the SDK and CLI packages to npm.
 1. **npm account** - Create one at https://www.npmjs.com/signup
 2. **npm authentication** - Run `npm login` and enter your credentials
 3. **Package names available** - Check if names are taken:
-   - `@pumpbuddy/sdk` (scoped package)
-   - `pumpbuddy` (CLI package)
+   - `@rewardai/sdk` (scoped package)
+   - `rewardai` (CLI package)
 
 ## Step-by-Step Publishing
 
@@ -28,7 +28,7 @@ npm whoami
 ### 2. Build the Packages
 
 ```bash
-cd /Users/beigesmacbookpro/Dropbox/Goldpill.org/ReactProjects/NOAH/pumpbuddy-sdk/pumpbuddy-sdk-clean
+cd /Users/beigesmacbookpro/Dropbox/Goldpill.org/ReactProjects/NOAH/rewardai-sdk/rewardai-sdk-clean
 
 # Install dependencies
 npm install
@@ -50,7 +50,7 @@ Before publishing, test the packages locally:
 # Test SDK
 cd packages/sdk
 npm pack
-# This creates a .tgz file you can test with: npm install /path/to/pumpbuddy-sdk-0.1.0.tgz
+# This creates a .tgz file you can test with: npm install /path/to/rewardai-sdk-0.1.0.tgz
 
 # Test CLI
 cd ../cli
@@ -68,7 +68,7 @@ npm publish --access public
 
 Expected output:
 ```
-+ @pumpbuddy/sdk@0.1.0
++ @rewardai/sdk@0.1.0
 ```
 
 ### 5. Publish CLI Package
@@ -82,48 +82,48 @@ npm publish --access public
 
 Expected output:
 ```
-+ pumpbuddy@0.1.0
++ rewardai@0.1.0
 ```
 
 ### 6. Verify Publication
 
 Check your packages on npm:
-- SDK: https://www.npmjs.com/package/@pumpbuddy/sdk
-- CLI: https://www.npmjs.com/package/pumpbuddy
+- SDK: https://www.npmjs.com/package/@rewardai/sdk
+- CLI: https://www.npmjs.com/package/rewardai
 
 Test installation:
 ```bash
 # Test SDK
-npm install @pumpbuddy/sdk
+npm install @rewardai/sdk
 
 # Test CLI globally
-npm install -g pumpbuddy
-pumpbuddy --version
+npm install -g rewardai
+rewardai --version
 ```
 
 ## Troubleshooting
 
 ### Error: Package name already taken
 
-If `@pumpbuddy/sdk` or `pumpbuddy` is taken, you have options:
+If `@rewardai/sdk` or `rewardai` is taken, you have options:
 
 **Option 1: Use your own scope**
 ```json
 // packages/sdk/package.json
 {
-  "name": "@beigecode/pumpbuddy-sdk"
+  "name": "@beigecode/rewardai-sdk"
 }
 
 // packages/cli/package.json
 {
-  "name": "@beigecode/pumpbuddy"
+  "name": "@beigecode/rewardai"
 }
 ```
 
 **Option 2: Add suffix**
 ```json
 {
-  "name": "pumpbuddy-cli"
+  "name": "rewardai-cli"
 }
 ```
 
@@ -199,12 +199,12 @@ Your repo already has `.github/workflows/ci.yml`. To enable automated npm publis
    - Copy the token
 
 2. **Add to GitHub Secrets**:
-   - Go to your repo: https://github.com/beigecode/pumpbuddy-sdk/settings/secrets/actions
+   - Go to your repo: https://github.com/beigecode/rewardai-sdk/settings/secrets/actions
    - New repository secret: `NPM_TOKEN`
    - Paste your npm token
 
 3. **Create release on GitHub**:
-   - Go to https://github.com/beigecode/pumpbuddy-sdk/releases/new
+   - Go to https://github.com/beigecode/rewardai-sdk/releases/new
    - Create tag: `v0.1.0`
    - Title: `Release v0.1.0`
    - Click "Publish release"
@@ -226,8 +226,8 @@ cd packages/sdk && npm publish --access public
 cd packages/cli && npm publish --access public
 
 # Test installation
-npm install -g pumpbuddy
-pumpbuddy --version
+npm install -g rewardai
+rewardai --version
 
 # Update version
 npm version patch
@@ -238,9 +238,9 @@ git tag v0.1.1 && git push origin v0.1.1
 
 ## Package URLs After Publishing
 
-- **SDK Package**: https://www.npmjs.com/package/@pumpbuddy/sdk
-- **CLI Package**: https://www.npmjs.com/package/pumpbuddy
-- **GitHub Repo**: https://github.com/beigecode/pumpbuddy-sdk
+- **SDK Package**: https://www.npmjs.com/package/@rewardai/sdk
+- **CLI Package**: https://www.npmjs.com/package/rewardai
+- **GitHub Repo**: https://github.com/beigecode/rewardai-sdk
 
 ---
 
