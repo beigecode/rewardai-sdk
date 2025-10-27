@@ -5,7 +5,7 @@ Thank you for your interest in contributing!
 ## Development Setup
 
 ```bash
-git clone https://github.com/ORG_NAME/pumpbuddy-sdk.git
+git clone https://github.com/beigecode/pumpbuddy-sdk.git
 cd pumpbuddy-sdk
 npm install
 npm run build

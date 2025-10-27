@@ -5,7 +5,7 @@
   "description": "Distribute Pump.fun rewards via Coinbase x402",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ORG_NAME/pumpbuddy-sdk.git"
+    "url": "https://github.com/beigecode/pumpbuddy-sdk.git"
   },
   "workspaces": [
     "packages/*"

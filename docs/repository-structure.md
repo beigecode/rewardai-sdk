@@ -95,7 +95,7 @@ pumpbuddy-sdk/
 # PumpBuddy SDK
 
 [![npm version](https://badge.fury.io/js/%40pumpbuddy%2Fsdk.svg)](https://www.npmjs.com/package/@pumpbuddy/sdk)
-[![Build Status](https://github.com/ORG_NAME/pumpbuddy-sdk/workflows/CI/badge.svg)](https://github.com/ORG_NAME/pumpbuddy-sdk/actions)
+[![Build Status](https://github.com/beigecode/pumpbuddy-sdk/workflows/CI/badge.svg)](https://github.com/beigecode/pumpbuddy-sdk/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Built with x402](https://img.shields.io/badge/Built%20with-x402-00FF7F)](https://github.com/coinbase/x402)
 
@@ -200,7 +200,7 @@ PumpBuddy leverages [Coinbase's x402](https://github.com/coinbase/x402) for secu
 
 ```bash
 # Clone repository
-git clone https://github.com/ORG_NAME/pumpbuddy-sdk.git
+git clone https://github.com/beigecode/pumpbuddy-sdk.git
 cd pumpbuddy-sdk
 
 # Install dependencies
@@ -246,7 +246,7 @@ MIT © PumpBuddy
   "description": "Distribute Pump.fun rewards via x402",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ORG_NAME/pumpbuddy-sdk.git"
+    "url": "https://github.com/beigecode/pumpbuddy-sdk.git"
   },
   "workspaces": [
     "packages/*"
@@ -523,7 +523,7 @@ npm publish --access public
 
 ### GitHub Configuration
 
-- [ ] Create repository: `ORG_NAME/pumpbuddy-sdk`
+- [ ] Create repository: `beigecode/pumpbuddy-sdk`
 - [ ] Add description: "Distribute Pump.fun rewards via Coinbase x402"
 - [ ] Add topics: `solana`, `pump-fun`, `x402`, `sdk`, `cli`, `coinbase`
 - [ ] Enable GitHub Actions

@@ -385,7 +385,7 @@ For x402-specific questions:
 - x402 Docs: https://x402.org
 
 For PumpBuddy questions:
-- GitHub Issues: https://github.com/ORG_NAME/pumpbuddy-sdk/issues
+- GitHub Issues: https://github.com/beigecode/pumpbuddy-sdk/issues
 - Discord: https://discord.gg/pumpbuddy
 
 ---
