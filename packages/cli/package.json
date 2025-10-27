@@ -1,0 +1,40 @@
+{
+  "name": "pumpbuddy",
+  "version": "0.1.0",
+  "description": "PumpBuddy CLI for distributing Pump.fun token rewards",
+  "main": "./dist/index.js",
+  "bin": {
+    "pumpbuddy": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "pumpbuddy",
+    "pump.fun",
+    "solana",
+    "cli"
+  ],
+  "author": "PumpBuddy",
+  "license": "MIT",
+  "dependencies": {
+    "@pumpbuddy/sdk": "*",
+    "yargs": "^17.7.2",
+    "inquirer": "^9.2.12",
+    "chalk": "^5.3.0",
+    "ora": "^8.0.1",
+    "csv-parse": "^5.5.3"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "@types/node": "^20",
+    "@types/yargs": "^17.0.32",
+    "@types/inquirer": "^9.0.7"
+  }
+}
+

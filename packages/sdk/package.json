@@ -1,0 +1,34 @@
+{
+  "name": "@pumpbuddy/sdk",
+  "version": "0.1.0",
+  "description": "PumpBuddy SDK for distributing Pump.fun token rewards via Coinbase x402",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "pumpbuddy",
+    "pump.fun",
+    "solana",
+    "x402",
+    "crypto",
+    "rewards"
+  ],
+  "author": "PumpBuddy",
+  "license": "MIT",
+  "dependencies": {
+    "@solana/web3.js": "^1.95.8",
+    "@solana/spl-token": "^0.4.9",
+    "axios": "^1.7.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "@types/node": "^20"
+  }
+}
