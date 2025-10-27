@@ -6,7 +6,7 @@
  *
  * @see https://github.com/coinbase/x402
  */
-import type { CreateInvoiceParams, X402Invoice } from './types';
+import type { CreateInvoiceParams, X402Invoice } from './types.js';
 /**
  * x402 Payment Requirements (from x402 spec)
  */

@@ -1,5 +1,5 @@
 import { Connection, PublicKey, clusterApiUrl } from '@solana/web3.js';
-import type { RewardAIConfig } from './types';
+import type { RewardAIConfig } from './types.js';
 
 /**
  * Validate a Solana wallet address

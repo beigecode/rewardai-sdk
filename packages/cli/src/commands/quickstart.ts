@@ -4,7 +4,7 @@ import { RewardAI } from 'rewardai-sdk';
 import inquirer from 'inquirer';
 import chalk from 'chalk';
 import ora from 'ora';
-import { downloadDemoRecipients } from '../utils';
+import { downloadDemoRecipients } from '../utils.js';
 
 interface QuickstartArgs {
   wallet?: string;
@@ -64,7 +64,7 @@ export async function quickstartCommand(args: QuickstartArgs): Promise<void> {
     spinner = ora('Running dry-run distribution...').start();
     const result = await sdk.distribute({
       wallet,
-      tokenMint: 'DEMO_TOKEN_MINT',
+      tokenMint: 'So11111111111111111111111111111111111111112', // Wrapped SOL for demo
       recipients,
       dryRun: true,
     });

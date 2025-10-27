@@ -40,41 +40,25 @@ export function loadRecipientsFromCSV(filePath: string): Recipient[] {
 export async function downloadDemoRecipients(
   apiUrl: string = 'http://localhost:3000'
 ): Promise<Recipient[]> {
-  try {
-    const response = await fetch(
-      `${apiUrl}/api/onboarding/demo-recipients`,
-      {
-        method: 'POST',
-      }
-    );
-
-    if (!response.ok) {
-      throw new Error(`API request failed: ${response.statusText}`);
-    }
-
-    const data = await response.json() as { recipients?: Recipient[] };
-    return data.recipients || [];
-  } catch (error) {
-    // Fallback to hardcoded demo recipients if API is unavailable
-    console.warn('Could not reach API, using fallback demo recipients');
-    return [
-      {
-        wallet: 'Demo1111111111111111111111111111111111111',
-        amount: 10,
-        name: 'Alice (Demo)',
-      },
-      {
-        wallet: 'Demo2222222222222222222222222222222222222',
-        amount: 25,
-        name: 'Bob (Demo)',
-      },
-      {
-        wallet: 'Demo3333333333333333333333333333333333333',
-        amount: 15,
-        name: 'Charlie (Demo)',
-      },
-    ];
-  }
+  // Always use fallback for now since we don't have the API running
+  console.warn('Using fallback demo recipients (API disabled)');
+  return [
+    {
+      wallet: '64tMnTUK1jPMzLL5qhuW2oKgjQ8ckU3JdHW8XJaZWHg7',
+      amount: 10,
+      name: 'Alice (Demo)',
+    },
+    {
+      wallet: 'AirmLiyvKSqz2cjLp9e8xaWSX7TcdBgJJpRPuzYjMe3e',
+      amount: 25,
+      name: 'Bob (Demo)',
+    },
+    {
+      wallet: 'ExsmxuJUWeaz6wZ1mmPCftzKBE2F6U4NK7UyhQ34VEY',
+      amount: 15,
+      name: 'Charlie (Demo)',
+    },
+  ];
 }
 
 /**

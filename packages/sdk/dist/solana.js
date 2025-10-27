@@ -1,17 +1,10 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.isValidSolanaAddress = isValidSolanaAddress;
-exports.getConnection = getConnection;
-exports.verifyConnection = verifyConnection;
-exports.getBalance = getBalance;
-exports.formatTokenMint = formatTokenMint;
-const web3_js_1 = require("@solana/web3.js");
+import { Connection, PublicKey, clusterApiUrl } from '@solana/web3.js';
 /**
  * Validate a Solana wallet address
  */
-function isValidSolanaAddress(address) {
+export function isValidSolanaAddress(address) {
     try {
-        new web3_js_1.PublicKey(address);
+        new PublicKey(address);
         return true;
     }
     catch {
@@ -21,14 +14,14 @@ function isValidSolanaAddress(address) {
 /**
  * Get Solana RPC connection
  */
-function getConnection(config) {
-    const endpoint = config.rpcEndpoint || (0, web3_js_1.clusterApiUrl)(config.network || 'devnet');
-    return new web3_js_1.Connection(endpoint, 'confirmed');
+export function getConnection(config) {
+    const endpoint = config.rpcEndpoint || clusterApiUrl(config.network || 'devnet');
+    return new Connection(endpoint, 'confirmed');
 }
 /**
  * Verify Solana connection
  */
-async function verifyConnection(connection) {
+export async function verifyConnection(connection) {
     try {
         const version = await connection.getVersion();
         return !!version;
@@ -41,9 +34,9 @@ async function verifyConnection(connection) {
 /**
  * Get account balance (SOL)
  */
-async function getBalance(connection, address) {
+export async function getBalance(connection, address) {
     try {
-        const publicKey = new web3_js_1.PublicKey(address);
+        const publicKey = new PublicKey(address);
         const balance = await connection.getBalance(publicKey);
         return balance / 1e9; // Convert lamports to SOL
     }
@@ -55,7 +48,7 @@ async function getBalance(connection, address) {
 /**
  * Format token mint address (basic validation/formatting)
  */
-function formatTokenMint(mint) {
+export function formatTokenMint(mint) {
     // Check if it's a valid Solana address
     if (isValidSolanaAddress(mint)) {
         return mint;

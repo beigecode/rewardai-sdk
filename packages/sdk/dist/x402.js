@@ -1,10 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.createInvoice = createInvoice;
-exports.verifySettlement = verifySettlement;
-exports.cancelInvoice = cancelInvoice;
-exports.getInvoiceStatus = getInvoiceStatus;
-const x402_integration_1 = require("./x402-integration");
+import { createX402Invoice, verifyX402Settlement } from './x402-integration.js';
 /**
  * Create an x402 invoice using Coinbase's protocol
  *
@@ -18,8 +12,8 @@ const x402_integration_1 = require("./x402-integration");
  * 4. Server settles payment on Solana via facilitator
  * 5. Server returns resource with X-PAYMENT-RESPONSE header
  */
-async function createInvoice(params, network = 'devnet') {
-    return (0, x402_integration_1.createX402Invoice)(params, network);
+export async function createInvoice(params, network = 'devnet') {
+    return createX402Invoice(params, network);
 }
 /**
  * Verify x402 invoice payment settlement
@@ -30,13 +24,13 @@ async function createInvoice(params, network = 'devnet') {
  * 3. Wait for blockchain confirmation
  * 4. Return transaction details
  */
-async function verifySettlement(invoice, paymentHeader, network = 'devnet') {
-    return (0, x402_integration_1.verifyX402Settlement)(invoice, paymentHeader, network);
+export async function verifySettlement(invoice, paymentHeader, network = 'devnet') {
+    return verifyX402Settlement(invoice, paymentHeader, network);
 }
 /**
  * Cancel an x402 invoice
  */
-async function cancelInvoice(invoiceId) {
+export async function cancelInvoice(invoiceId) {
     console.log(`\n✗ Canceling invoice ${invoiceId}...`);
     console.log('✓ Invoice canceled (MOCK)\n');
     return true;
@@ -44,7 +38,7 @@ async function cancelInvoice(invoiceId) {
 /**
  * Get invoice status
  */
-async function getInvoiceStatus(invoiceId) {
+export async function getInvoiceStatus(invoiceId) {
     console.log(`\n📊 Fetching status for invoice ${invoiceId}...`);
     // Mock: return pending status
     return 'pending';

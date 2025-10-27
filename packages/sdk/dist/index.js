@@ -1,28 +1,11 @@
-"use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __exportStar = (this && this.__exportStar) || function(m, exports) {
-    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.RewardAI = void 0;
-const solana_1 = require("./solana");
-const x402_1 = require("./x402");
+import { getConnection, verifyConnection, isValidSolanaAddress, formatTokenMint, getBalance, } from './solana.js';
+import { createInvoice, verifySettlement } from './x402.js';
 /**
  * RewardAI SDK
  *
  * Main class for distributing Pump.fun token rewards using Coinbase x402.
  */
-class RewardAI {
+export class RewardAI {
     constructor(config = {}) {
         this.connection = null;
         this.initialized = false;
@@ -43,9 +26,9 @@ class RewardAI {
         this.log('Initializing RewardAI SDK...');
         this.log(`Network: ${this.config.network}`);
         // Set up Solana connection
-        this.connection = (0, solana_1.getConnection)(this.config);
+        this.connection = getConnection(this.config);
         // Verify connection
-        const connected = await (0, solana_1.verifyConnection)(this.connection);
+        const connected = await verifyConnection(this.connection);
         if (!connected) {
             throw new Error('Failed to connect to Solana network');
         }
@@ -63,12 +46,12 @@ class RewardAI {
         this.log(`Token:       ${tokenMint}`);
         this.log(`Vault:       ${toVault}`);
         // Validate addresses
-        if (!(0, solana_1.isValidSolanaAddress)(toVault)) {
+        if (!isValidSolanaAddress(toVault)) {
             throw new Error('Invalid vault address');
         }
         // Create x402 invoice with network from config
-        const invoice = await (0, x402_1.createInvoice)({
-            tokenMint: (0, solana_1.formatTokenMint)(tokenMint),
+        const invoice = await createInvoice({
+            tokenMint: formatTokenMint(tokenMint),
             amount,
             recipient: toVault,
             description: description || 'Fund RewardAI vault',
@@ -91,11 +74,11 @@ class RewardAI {
         this.log(`Token:       ${tokenMint}`);
         this.log(`Recipients:  ${recipients.length}`);
         // Validate wallet
-        if (!(0, solana_1.isValidSolanaAddress)(wallet)) {
+        if (!isValidSolanaAddress(wallet)) {
             throw new Error('Invalid wallet address');
         }
         // Validate all recipients
-        const invalidRecipients = recipients.filter((r) => !(0, solana_1.isValidSolanaAddress)(r.wallet));
+        const invalidRecipients = recipients.filter((r) => !isValidSolanaAddress(r.wallet));
         if (invalidRecipients.length > 0) {
             throw new Error(`Invalid recipient addresses: ${invalidRecipients.map((r) => r.name || r.wallet).join(', ')}`);
         }
@@ -144,13 +127,13 @@ class RewardAI {
         if (!this.connection) {
             throw new Error('Connection not established');
         }
-        return (0, solana_1.getBalance)(this.connection, wallet);
+        return getBalance(this.connection, wallet);
     }
     /**
      * Verify x402 invoice settlement
      */
     async verifyInvoice(invoice, paymentHeader) {
-        return (0, x402_1.verifySettlement)(invoice, paymentHeader, this.config.network || 'devnet');
+        return verifySettlement(invoice, paymentHeader, this.config.network || 'devnet');
     }
     // Private helper methods
     ensureInitialized() {
@@ -178,8 +161,7 @@ class RewardAI {
         console.log('└─────────────────────────────────────────────────────────────┘\n');
     }
 }
-exports.RewardAI = RewardAI;
 // Export types
-__exportStar(require("./types"), exports);
+export * from './types.js';
 // Export helper functions for common use cases
-__exportStar(require("./helpers"), exports);
+export * from './helpers.js';

@@ -4,8 +4,8 @@
  * User-friendly one-liner functions for common use cases
  */
 
-import { RewardAI } from './index';
-import type { Recipient, DistributeResult } from './types';
+import { RewardAI } from './index.js';
+import type { Recipient, DistributeResult } from './types.js';
 
 export interface RewardTopTradersParams {
   wallet: string;

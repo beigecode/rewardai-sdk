@@ -11,7 +11,7 @@ import axios from 'axios';
 import type {
   CreateInvoiceParams,
   X402Invoice,
-} from './types';
+} from './types.js';
 
 /**
  * x402 Payment Requirements (from x402 spec)

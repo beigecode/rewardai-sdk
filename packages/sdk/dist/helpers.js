@@ -1,23 +1,15 @@
-"use strict";
 /**
  * RewardAI Helper Functions
  *
  * User-friendly one-liner functions for common use cases
  */
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.rewardTopTraders = rewardTopTraders;
-exports.airdropToHolders = airdropToHolders;
-exports.flashGiveaway = flashGiveaway;
-exports.rewardMilestone = rewardMilestone;
-exports.distributeStakingRewards = distributeStakingRewards;
-exports.rewardEngagement = rewardEngagement;
-const index_1 = require("./index");
+import { RewardAI } from './index.js';
 /**
  * Reward top traders from a trading competition
  */
-async function rewardTopTraders(params) {
+export async function rewardTopTraders(params) {
     const { wallet, tokenMint, prizes, traders, network = 'mainnet-beta' } = params;
-    const sdk = new index_1.RewardAI({ network });
+    const sdk = new RewardAI({ network });
     await sdk.init();
     const recipients = traders.slice(0, prizes.length).map((trader, i) => ({
         wallet: trader.address,
@@ -34,9 +26,9 @@ async function rewardTopTraders(params) {
 /**
  * Airdrop tokens to all holders proportionally
  */
-async function airdropToHolders(params) {
+export async function airdropToHolders(params) {
     const { wallet, tokenMint, totalAmount, proportional, holders, network = 'mainnet-beta' } = params;
-    const sdk = new index_1.RewardAI({ network });
+    const sdk = new RewardAI({ network });
     await sdk.init();
     if (!holders || holders.length === 0) {
         throw new Error('No holders provided. Please pass holders array.');
@@ -67,9 +59,9 @@ async function airdropToHolders(params) {
 /**
  * Run a flash giveaway with instant rewards
  */
-async function flashGiveaway(params) {
+export async function flashGiveaway(params) {
     const { wallet, tokenMint, amount, winners, network = 'mainnet-beta' } = params;
-    const sdk = new index_1.RewardAI({ network });
+    const sdk = new RewardAI({ network });
     await sdk.init();
     const recipients = winners.map((winner, i) => ({
         wallet: winner,
@@ -86,9 +78,9 @@ async function flashGiveaway(params) {
 /**
  * Celebrate milestones with special rewards
  */
-async function rewardMilestone(params) {
+export async function rewardMilestone(params) {
     const { wallet, tokenMint, amount, recipients, message, network = 'mainnet-beta' } = params;
-    const sdk = new index_1.RewardAI({ network });
+    const sdk = new RewardAI({ network });
     await sdk.init();
     const recipientList = recipients.map((recipient, i) => {
         if (typeof recipient === 'string') {
@@ -114,9 +106,9 @@ async function rewardMilestone(params) {
 /**
  * Distribute automated staking rewards
  */
-async function distributeStakingRewards(params) {
+export async function distributeStakingRewards(params) {
     const { wallet, tokenMint, apyRate, period, stakers, network = 'mainnet-beta' } = params;
-    const sdk = new index_1.RewardAI({ network });
+    const sdk = new RewardAI({ network });
     await sdk.init();
     // Calculate period rate
     const periodsPerYear = {
@@ -140,9 +132,9 @@ async function distributeStakingRewards(params) {
 /**
  * Reward active community members based on engagement
  */
-async function rewardEngagement(params) {
+export async function rewardEngagement(params) {
     const { wallet, tokenMint, multiplier, contributors, network = 'mainnet-beta' } = params;
-    const sdk = new index_1.RewardAI({ network });
+    const sdk = new RewardAI({ network });
     await sdk.init();
     const recipients = contributors.map(contributor => ({
         wallet: contributor.wallet,
@@ -159,7 +151,7 @@ async function rewardEngagement(params) {
     });
 }
 // Export all helper functions
-exports.default = {
+export default {
     rewardTopTraders,
     airdropToHolders,
     flashGiveaway,

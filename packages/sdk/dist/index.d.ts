@@ -1,4 +1,4 @@
-import type { RewardAIConfig, DistributeParams, DistributeResult, FundViaX402Params, X402Invoice } from './types';
+import type { RewardAIConfig, DistributeParams, DistributeResult, FundViaX402Params, X402Invoice } from './types.js';
 /**
  * RewardAI SDK
  *
@@ -33,5 +33,5 @@ export declare class RewardAI {
     private log;
     private printDistributionSummary;
 }
-export * from './types';
-export * from './helpers';
+export * from './types.js';
+export * from './helpers.js';

@@ -3,7 +3,7 @@
 import { RewardAI } from 'rewardai-sdk';
 import chalk from 'chalk';
 import ora from 'ora';
-import { loadRecipientsFromCSV, validateArgs } from '../utils';
+import { loadRecipientsFromCSV, validateArgs } from '../utils.js';
 
 interface DistributeArgs {
   wallet: string;

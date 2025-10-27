@@ -2,8 +2,8 @@
 
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
-import { quickstartCommand } from './commands/quickstart';
-import { distributeCommand } from './commands/distribute';
+import { quickstartCommand } from './commands/quickstart.js';
+import { distributeCommand } from './commands/distribute.js';
 
 yargs(hideBin(process.argv))
   .scriptName('rewardai')

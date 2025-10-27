@@ -6,15 +6,15 @@ import type {
   FundViaX402Params,
   X402Invoice,
   Recipient,
-} from './types';
+} from './types.js';
 import {
   getConnection,
   verifyConnection,
   isValidSolanaAddress,
   formatTokenMint,
   getBalance,
-} from './solana';
-import { createInvoice, verifySettlement } from './x402';
+} from './solana.js';
+import { createInvoice, verifySettlement } from './x402.js';
 
 /**
  * RewardAI SDK
@@ -236,7 +236,7 @@ export class RewardAI {
 }
 
 // Export types
-export * from './types';
+export * from './types.js';
 
 // Export helper functions for common use cases
-export * from './helpers';
+export * from './helpers.js';

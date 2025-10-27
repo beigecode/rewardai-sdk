@@ -1,4 +1,4 @@
-import type { CreateInvoiceParams, X402Invoice } from './types';
+import type { CreateInvoiceParams, X402Invoice } from './types.js';
 /**
  * Create an x402 invoice using Coinbase's protocol
  *

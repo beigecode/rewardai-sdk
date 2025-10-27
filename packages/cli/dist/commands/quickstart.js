@@ -1,21 +1,15 @@
 #!/usr/bin/env node
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.quickstartCommand = quickstartCommand;
-const rewardai_sdk_1 = require("rewardai-sdk");
-const inquirer_1 = __importDefault(require("inquirer"));
-const chalk_1 = __importDefault(require("chalk"));
-const ora_1 = __importDefault(require("ora"));
-const utils_1 = require("../utils");
-async function quickstartCommand(args) {
-    console.log(chalk_1.default.bold.green('\n🚀 RewardAI Quickstart\n'));
+import { RewardAI } from 'rewardai-sdk';
+import inquirer from 'inquirer';
+import chalk from 'chalk';
+import ora from 'ora';
+import { downloadDemoRecipients } from '../utils.js';
+export async function quickstartCommand(args) {
+    console.log(chalk.bold.green('\n🚀 RewardAI Quickstart\n'));
     // Prompt for wallet if not provided
     let wallet = args.wallet;
     if (!wallet) {
-        const answers = await inquirer_1.default.prompt([
+        const answers = await inquirer.prompt([
             {
                 type: 'input',
                 name: 'wallet',
@@ -31,54 +25,54 @@ async function quickstartCommand(args) {
         wallet = answers.wallet;
     }
     if (!wallet) {
-        console.error(chalk_1.default.red('Error: Wallet address is required'));
+        console.error(chalk.red('Error: Wallet address is required'));
         process.exit(1);
     }
     const network = args.devnet ? 'devnet' : 'mainnet-beta';
-    console.log(chalk_1.default.gray(`\nWallet:  ${wallet}`));
-    console.log(chalk_1.default.gray(`Network: ${network}\n`));
+    console.log(chalk.gray(`\nWallet:  ${wallet}`));
+    console.log(chalk.gray(`Network: ${network}\n`));
     // Initialize SDK
-    let spinner = (0, ora_1.default)('Initializing SDK...').start();
+    let spinner = ora('Initializing SDK...').start();
     try {
-        const sdk = new rewardai_sdk_1.RewardAI({
+        const sdk = new RewardAI({
             network,
             verbose: false,
         });
         await sdk.init();
         spinner.succeed('SDK initialized');
         // Download demo recipients
-        spinner = (0, ora_1.default)('Downloading demo recipients...').start();
-        const recipients = await (0, utils_1.downloadDemoRecipients)();
+        spinner = ora('Downloading demo recipients...').start();
+        const recipients = await downloadDemoRecipients();
         spinner.succeed(`Loaded ${recipients.length} demo recipients`);
         // Run dry-run distribution
-        spinner = (0, ora_1.default)('Running dry-run distribution...').start();
+        spinner = ora('Running dry-run distribution...').start();
         const result = await sdk.distribute({
             wallet,
-            tokenMint: 'DEMO_TOKEN_MINT',
+            tokenMint: 'So11111111111111111111111111111111111111112', // Wrapped SOL for demo
             recipients,
             dryRun: true,
         });
         spinner.succeed('Dry-run complete!');
         // Print results
-        console.log(chalk_1.default.bold.green('\n✓ Quickstart Complete!\n'));
-        console.log(chalk_1.default.gray('━'.repeat(60)));
-        console.log(chalk_1.default.white(`Recipients:   ${result.totalRecipients}`));
-        console.log(chalk_1.default.white(`Total Amount: ${result.totalAmount} tokens`));
-        console.log(chalk_1.default.gray('━'.repeat(60)));
+        console.log(chalk.bold.green('\n✓ Quickstart Complete!\n'));
+        console.log(chalk.gray('━'.repeat(60)));
+        console.log(chalk.white(`Recipients:   ${result.totalRecipients}`));
+        console.log(chalk.white(`Total Amount: ${result.totalAmount} tokens`));
+        console.log(chalk.gray('━'.repeat(60)));
         // Next steps
-        console.log(chalk_1.default.bold('\n📋 Next Steps:\n'));
-        console.log(chalk_1.default.white('1. Review the demo recipients in the summary above'));
-        console.log(chalk_1.default.white('2. Edit ') +
-            chalk_1.default.cyan('./examples/recipients.csv') +
-            chalk_1.default.white(' to add your community'));
-        console.log(chalk_1.default.white('3. Run the distribute command:'));
-        console.log(chalk_1.default.cyan(`\n   npx pumpbuddy distribute --wallet ${wallet} --token YOUR_TOKEN --recipients ./examples/recipients.csv --dry-run\n`));
-        console.log(chalk_1.default.gray('Tip: Remove --dry-run and add --confirm to execute real transfers.\n'));
+        console.log(chalk.bold('\n📋 Next Steps:\n'));
+        console.log(chalk.white('1. Review the demo recipients in the summary above'));
+        console.log(chalk.white('2. Edit ') +
+            chalk.cyan('./examples/recipients.csv') +
+            chalk.white(' to add your community'));
+        console.log(chalk.white('3. Run the distribute command:'));
+        console.log(chalk.cyan(`\n   npx pumpbuddy distribute --wallet ${wallet} --token YOUR_TOKEN --recipients ./examples/recipients.csv --dry-run\n`));
+        console.log(chalk.gray('Tip: Remove --dry-run and add --confirm to execute real transfers.\n'));
     }
     catch (error) {
         spinner.fail('Quickstart failed');
         if (error instanceof Error) {
-            console.error(chalk_1.default.red(`\n✗ Error: ${error.message}\n`));
+            console.error(chalk.red(`\n✗ Error: ${error.message}\n`));
         }
         process.exit(1);
     }

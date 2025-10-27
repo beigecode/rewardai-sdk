@@ -3,7 +3,7 @@
  *
  * User-friendly one-liner functions for common use cases
  */
-import type { DistributeResult } from './types';
+import type { DistributeResult } from './types.js';
 export interface RewardTopTradersParams {
     wallet: string;
     tokenMint: string;

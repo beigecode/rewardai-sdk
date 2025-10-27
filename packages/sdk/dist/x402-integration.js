@@ -1,4 +1,3 @@
-"use strict";
 /**
  * x402 Protocol Integration for RewardAI
  *
@@ -7,14 +6,7 @@
  *
  * @see https://github.com/coinbase/x402
  */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.X402Client = void 0;
-exports.createX402Invoice = createX402Invoice;
-exports.verifyX402Settlement = verifyX402Settlement;
-const axios_1 = __importDefault(require("axios"));
+import axios from 'axios';
 /**
  * x402 Client for RewardAI SDK
  *
@@ -23,7 +15,7 @@ const axios_1 = __importDefault(require("axios"));
  * 2. Verify payments from creator wallets
  * 3. Settle distributions on Solana blockchain
  */
-class X402Client {
+export class X402Client {
     constructor(facilitatorUrl = 'https://x402-facilitator.coinbase.com', network = 'devnet') {
         this.facilitatorUrl = facilitatorUrl;
         this.network = network;
@@ -73,7 +65,7 @@ class X402Client {
      */
     async verifyPayment(paymentHeader, requirements) {
         try {
-            const response = await axios_1.default.post(`${this.facilitatorUrl}/verify`, {
+            const response = await axios.post(`${this.facilitatorUrl}/verify`, {
                 x402Version: 1,
                 paymentHeader,
                 paymentRequirements: requirements,
@@ -102,7 +94,7 @@ class X402Client {
      */
     async settlePayment(paymentHeader, requirements) {
         try {
-            const response = await axios_1.default.post(`${this.facilitatorUrl}/settle`, {
+            const response = await axios.post(`${this.facilitatorUrl}/settle`, {
                 x402Version: 1,
                 paymentHeader,
                 paymentRequirements: requirements,
@@ -128,7 +120,7 @@ class X402Client {
      */
     async getSupportedSchemes() {
         try {
-            const response = await axios_1.default.get(`${this.facilitatorUrl}/supported`);
+            const response = await axios.get(`${this.facilitatorUrl}/supported`);
             return response.data.kinds || [];
         }
         catch (error) {
@@ -177,7 +169,6 @@ class X402Client {
         }
     }
 }
-exports.X402Client = X402Client;
 /**
  * Create x402 invoice using Coinbase's protocol
  *
@@ -189,7 +180,7 @@ exports.X402Client = X402Client;
  * 4. Server settles payment via facilitator
  * 5. Server returns resource with X-PAYMENT-RESPONSE header
  */
-async function createX402Invoice(params, network = 'devnet') {
+export async function createX402Invoice(params, network = 'devnet') {
     const client = new X402Client(undefined, network);
     const requirements = await client.createPaymentRequirements(params);
     // Create x402 invoice object
@@ -233,7 +224,7 @@ async function createX402Invoice(params, network = 'devnet') {
 /**
  * Verify x402 invoice settlement
  */
-async function verifyX402Settlement(invoice, paymentHeader, network = 'devnet') {
+export async function verifyX402Settlement(invoice, paymentHeader, network = 'devnet') {
     const client = new X402Client(undefined, network);
     // Create requirements from invoice
     const requirements = await client.createPaymentRequirements({

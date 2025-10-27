@@ -1,14 +1,9 @@
 #!/usr/bin/env node
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const yargs_1 = __importDefault(require("yargs"));
-const helpers_1 = require("yargs/helpers");
-const quickstart_1 = require("./commands/quickstart");
-const distribute_1 = require("./commands/distribute");
-(0, yargs_1.default)((0, helpers_1.hideBin)(process.argv))
+import yargs from 'yargs';
+import { hideBin } from 'yargs/helpers';
+import { quickstartCommand } from './commands/quickstart.js';
+import { distributeCommand } from './commands/distribute.js';
+yargs(hideBin(process.argv))
     .scriptName('rewardai')
     .usage('$0 <command> [options]')
     .command('quickstart', 'Quick setup guide with demo distribution', (yargs) => {
@@ -23,7 +18,7 @@ const distribute_1 = require("./commands/distribute");
         default: true,
     });
 }, (argv) => {
-    (0, quickstart_1.quickstartCommand)(argv).catch((error) => {
+    quickstartCommand(argv).catch((error) => {
         console.error(error);
         process.exit(1);
     });
@@ -61,7 +56,7 @@ const distribute_1 = require("./commands/distribute");
         default: false,
     });
 }, (argv) => {
-    (0, distribute_1.distributeCommand)(argv).catch((error) => {
+    distributeCommand(argv).catch((error) => {
         console.error(error);
         process.exit(1);
     });
