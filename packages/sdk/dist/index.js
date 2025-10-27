@@ -181,3 +181,5 @@ class PumpBuddy {
 exports.PumpBuddy = PumpBuddy;
 // Export types
 __exportStar(require("./types"), exports);
+// Export helper functions for common use cases
+__exportStar(require("./helpers"), exports);

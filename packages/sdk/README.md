@@ -74,6 +74,115 @@ Fund a vault via Coinbase x402.
 - `toVault` - Vault/recipient address
 - `description` - Optional description
 
+## Helper Functions
+
+User-friendly one-liners for common use cases:
+
+### `rewardTopTraders`
+
+Reward top traders from a competition:
+
+```typescript
+import { rewardTopTraders } from '@beigecode/pumpbuddy-sdk';
+
+await rewardTopTraders({
+  wallet: 'YOUR_CREATOR_WALLET',
+  tokenMint: 'YOUR_TOKEN_MINT',
+  prizes: [1000, 750, 500, 250, 100],
+  traders: [
+    { address: 'trader1...', username: 'Alice' },
+    { address: 'trader2...', username: 'Bob' },
+  ],
+});
+```
+
+### `airdropToHolders`
+
+Distribute tokens proportionally to all holders:
+
+```typescript
+import { airdropToHolders } from '@beigecode/pumpbuddy-sdk';
+
+await airdropToHolders({
+  wallet: 'YOUR_CREATOR_WALLET',
+  tokenMint: 'YOUR_TOKEN_MINT',
+  totalAmount: 1_000_000,
+  proportional: true,
+  holders: [
+    { address: 'holder1...', balance: 5000 },
+    { address: 'holder2...', balance: 3000 },
+  ],
+});
+```
+
+### `flashGiveaway`
+
+Run instant flash giveaways:
+
+```typescript
+import { flashGiveaway } from '@beigecode/pumpbuddy-sdk';
+
+await flashGiveaway({
+  wallet: 'YOUR_CREATOR_WALLET',
+  tokenMint: 'YOUR_TOKEN_MINT',
+  amount: 100,
+  winners: ['winner1...', 'winner2...', 'winner3...'],
+});
+```
+
+### `rewardMilestone`
+
+Celebrate milestones with rewards:
+
+```typescript
+import { rewardMilestone } from '@beigecode/pumpbuddy-sdk';
+
+await rewardMilestone({
+  wallet: 'YOUR_CREATOR_WALLET',
+  tokenMint: 'YOUR_TOKEN_MINT',
+  amount: 500,
+  recipients: ['holder1...', 'holder2...'],
+  message: '10K Holders Celebration! 🎉',
+});
+```
+
+### `distributeStakingRewards`
+
+Automated staking rewards:
+
+```typescript
+import { distributeStakingRewards } from '@beigecode/pumpbuddy-sdk';
+
+await distributeStakingRewards({
+  wallet: 'YOUR_STAKING_VAULT',
+  tokenMint: 'YOUR_TOKEN_MINT',
+  apyRate: 0.05, // 5% APY
+  period: 'weekly',
+  stakers: [
+    { address: 'staker1...', stakedBalance: 10000 },
+    { address: 'staker2...', stakedBalance: 5000 },
+  ],
+});
+```
+
+### `rewardEngagement`
+
+Reward community engagement:
+
+```typescript
+import { rewardEngagement } from '@beigecode/pumpbuddy-sdk';
+
+await rewardEngagement({
+  wallet: 'YOUR_CREATOR_WALLET',
+  tokenMint: 'YOUR_TOKEN_MINT',
+  multiplier: 10,
+  contributors: [
+    { wallet: 'user1...', engagementScore: 150, username: 'Alice' },
+    { wallet: 'user2...', engagementScore: 120, username: 'Bob' },
+  ],
+});
+```
+
 ## Development Status
 
 ⚠️ **Note:** This SDK contains stub implementations for x402 and on-chain operations. Real implementations will be added in future releases.

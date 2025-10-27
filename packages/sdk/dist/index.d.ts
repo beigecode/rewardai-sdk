@@ -34,3 +34,4 @@ export declare class PumpBuddy {
     private printDistributionSummary;
 }
 export * from './types';
+export * from './helpers';
