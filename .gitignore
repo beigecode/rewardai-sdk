@@ -45,3 +45,9 @@ docs/
 publish.sh
 packages/sdk/README.md
 packages/cli/README.md
+CHANGELOG.md
+CONTRIBUTING.md
+PUBLISHED_SUCCESS.md
+PUBLISHING_GUIDE.md
+PUBLISH_GUIDE.md
+READY_TO_PUBLISH.md
