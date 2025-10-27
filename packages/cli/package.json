@@ -1,5 +1,5 @@
 {
-  "name": "pumpbuddy",
+  "name": "@beigecode/pumpbuddy",
   "version": "0.1.0",
   "description": "PumpBuddy CLI for distributing Pump.fun token rewards",
   "main": "./dist/index.js",
@@ -23,7 +23,7 @@
   "author": "PumpBuddy",
   "license": "MIT",
   "dependencies": {
-    "@pumpbuddy/sdk": "*",
+    "@beigecode/pumpbuddy-sdk": "*",
     "yargs": "^17.7.2",
     "inquirer": "^9.2.12",
     "chalk": "^5.3.0",

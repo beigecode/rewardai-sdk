@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { PumpBuddy } from '@pumpbuddy/sdk';
+import { PumpBuddy } from '@beigecode/pumpbuddy-sdk';
 import chalk from 'chalk';
 import ora from 'ora';
 import { loadRecipientsFromCSV, validateArgs } from '../utils';
@@ -103,7 +103,7 @@ export async function distributeCommand(args: DistributeArgs): Promise<void> {
 
     if (result.signatures && result.signatures.length > 0) {
       console.log(chalk.bold('\n📝 Transaction Signatures:\n'));
-      result.signatures.forEach((sig, i) => {
+      result.signatures.forEach((sig: string, i: number) => {
         console.log(chalk.gray(`${i + 1}. ${sig}`));
       });
       console.log();

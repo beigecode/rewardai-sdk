@@ -89,7 +89,7 @@ export class PumpBuddy {
     );
 
     this.log('\n📋 Next steps:');
-    this.log('1. Pay the invoice at:', invoice.paymentUrl);
+    this.log(`1. Pay the invoice at: ${invoice.paymentUrl || 'N/A'}`);
     this.log('2. Wait for settlement confirmation');
     this.log('3. Proceed with distribution\n');
 

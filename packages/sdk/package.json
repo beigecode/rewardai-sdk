@@ -1,5 +1,5 @@
 {
-  "name": "@pumpbuddy/sdk",
+  "name": "@beigecode/pumpbuddy-sdk",
   "version": "0.1.0",
   "description": "PumpBuddy SDK for distributing Pump.fun token rewards via Coinbase x402",
   "main": "./dist/index.js",

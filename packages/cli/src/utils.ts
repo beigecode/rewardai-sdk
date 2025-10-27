@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { parse } from 'csv-parse/sync';
-import type { Recipient } from '@pumpbuddy/sdk';
+import type { Recipient } from '@beigecode/pumpbuddy-sdk';
 
 /**
  * Load recipients from CSV file
@@ -52,7 +52,7 @@ export async function downloadDemoRecipients(
       throw new Error(`API request failed: ${response.statusText}`);
     }
 
-    const data = await response.json();
+    const data = await response.json() as { recipients?: Recipient[] };
     return data.recipients || [];
   } catch (error) {
     // Fallback to hardcoded demo recipients if API is unavailable

@@ -1,6 +1,6 @@
 # PumpBuddy SDK
 
-[![npm version](https://badge.fury.io/js/%40pumpbuddy%2Fsdk.svg)](https://www.npmjs.com/package/@pumpbuddy/sdk)
+[![npm version](https://badge.fury.io/js/%40beigecode%2Fpumpbuddy-sdk.svg)](https://www.npmjs.com/package/@beigecode/pumpbuddy-sdk)
 [![Build Status](https://github.com/beigecode/pumpbuddy-sdk/workflows/CI/badge.svg)](https://github.com/beigecode/pumpbuddy-sdk/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Built with x402](https://img.shields.io/badge/Built%20with-x402-00FF7F)](https://github.com/coinbase/x402)
@@ -22,10 +22,10 @@
 
 ```bash
 # Install SDK
-npm install @pumpbuddy/sdk
+npm install @beigecode/pumpbuddy-sdk
 
 # Install CLI globally
-npm install -g pumpbuddy
+npm install -g @beigecode/pumpbuddy
 ```
 
 ### SDK Usage

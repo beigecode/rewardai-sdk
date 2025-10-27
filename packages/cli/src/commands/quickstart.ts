@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { PumpBuddy } from '@pumpbuddy/sdk';
+import { PumpBuddy } from '@beigecode/pumpbuddy-sdk';
 import inquirer from 'inquirer';
 import chalk from 'chalk';
 import ora from 'ora';
@@ -31,6 +31,11 @@ export async function quickstartCommand(args: QuickstartArgs): Promise<void> {
       },
     ]);
     wallet = answers.wallet;
+  }
+
+  if (!wallet) {
+    console.error(chalk.red('Error: Wallet address is required'));
+    process.exit(1);
   }
 
   const network = args.devnet ? 'devnet' : 'mainnet-beta';
