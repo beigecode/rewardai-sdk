@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Internal documentation (keep local only)
+docs/
+publish.sh
+packages/sdk/README.md
+packages/cli/README.md
