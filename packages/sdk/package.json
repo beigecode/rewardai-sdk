@@ -1,6 +1,6 @@
 {
   "name": "rewardai-sdk",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "RewardAI SDK for distributing Pump.fun token rewards via Coinbase x402",
   "type": "module",
   "main": "./dist/index.js",
@@ -26,7 +26,8 @@
   "dependencies": {
     "@solana/web3.js": "^1.95.8",
     "@solana/spl-token": "^0.4.9",
-    "axios": "^1.7.2"
+    "axios": "^1.7.2",
+    "bs58": "^5.0.0"
   },
   "devDependencies": {
     "typescript": "^5.7.2",

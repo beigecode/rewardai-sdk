@@ -28,7 +28,7 @@ npm install rewardai-sdk
 npm install -g rewardai
 ```
 
-### SDK Usage
+### SDK Usage (Dry-Run)
 
 ```typescript
 import { RewardAI } from 'rewardai-sdk';
@@ -36,16 +36,9 @@ import { RewardAI } from 'rewardai-sdk';
 const sdk = new RewardAI({ network: 'devnet' });
 await sdk.init();
 
-// Fund via x402
-const invoice = await sdk.fundViaX402({
-  amount: 1000,
-  tokenMint: 'YOUR_TOKEN_MINT',
-  toVault: 'VAULT_ADDRESS'
-});
-
-// Distribute rewards
+// Test distribution (no real transfers)
 const result = await sdk.distribute({
-  wallet: 'VAULT_ADDRESS',
+  wallet: 'YOUR_WALLET',
   tokenMint: 'YOUR_TOKEN_MINT',
   recipients: [
     { wallet: 'holder1...', amount: 20 },
@@ -54,6 +47,45 @@ const result = await sdk.distribute({
   dryRun: true
 });
 ```
+
+### SDK Usage (Real Transfers)
+
+For real token transfers, provide a keypair for signing:
+
+```typescript
+import { RewardAI } from 'rewardai-sdk';
+import { Keypair } from '@solana/web3.js';
+import bs58 from 'bs58';
+
+// Load your keypair (KEEP SECURE!)
+const keypair = Keypair.fromSecretKey(
+  bs58.decode(process.env.SOLANA_PRIVATE_KEY!)
+);
+
+// Initialize with keypair
+const sdk = new RewardAI({ 
+  network: 'mainnet-beta',
+  keypair: keypair 
+});
+
+await sdk.init();
+
+// Execute real transfers
+const result = await sdk.distribute({
+  wallet: keypair.publicKey.toString(),
+  tokenMint: 'YOUR_PUMP_FUN_TOKEN_MINT',
+  recipients: [
+    { wallet: 'RECIPIENT_1', amount: 1000, name: 'Alice' },
+    { wallet: 'RECIPIENT_2', amount: 500, name: 'Bob' }
+  ],
+  dryRun: false // Real transfer!
+});
+
+console.log(`✅ ${result.distributedCount} transfers successful`);
+console.log('Signatures:', result.signatures);
+```
+
+📖 **[See EXAMPLE_USAGE.md for complete examples →](EXAMPLE_USAGE.md)**
 
 ### CLI Usage
 

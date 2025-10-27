@@ -1,4 +1,10 @@
-import { Connection } from '@solana/web3.js';
+import { Connection, PublicKey, Transaction, Keypair } from '@solana/web3.js';
+import { 
+  getOrCreateAssociatedTokenAccount, 
+  createTransferInstruction,
+  TOKEN_PROGRAM_ID,
+  getAssociatedTokenAddress
+} from '@solana/spl-token';
 import type {
   RewardAIConfig,
   DistributeParams,
@@ -25,6 +31,7 @@ export class RewardAI {
   private config: RewardAIConfig;
   private connection: Connection | null = null;
   private initialized = false;
+  private keypair?: Keypair;
 
   constructor(config: RewardAIConfig = {}) {
     this.config = {
@@ -32,6 +39,7 @@ export class RewardAI {
       verbose: false,
       ...config,
     };
+    this.keypair = config.keypair;
   }
 
   /**
@@ -145,28 +153,89 @@ export class RewardAI {
       };
     }
 
-    // Real distribution logic (stub for now)
-    this.log('\n🚀 Executing transfers...');
-    this.log(
-      '⚠️  This is a STUB. Real implementation will execute SPL token transfers.\n'
-    );
-
-    // Simulate transfers
-    const signatures: string[] = [];
-    for (const recipient of recipients) {
-      const sig = `sig_${Math.random().toString(36).substring(7)}`;
-      signatures.push(sig);
-      this.log(`✓ Sent ${recipient.amount} to ${recipient.name || recipient.wallet}`);
+    // Real distribution logic
+    if (!this.keypair) {
+      throw new Error(
+        'Keypair required for real transfers. Pass keypair in config: new RewardAI({ keypair })'
+      );
     }
 
-    this.log('\n✓ Distribution complete!\n');
+    if (!this.connection) {
+      throw new Error('Connection not established');
+    }
+
+    this.log('\n🚀 Executing transfers...\n');
+
+    const tokenMintPubkey = new PublicKey(tokenMint);
+    const sourceWalletPubkey = new PublicKey(wallet);
+    const decimals = 6; // Pump.fun tokens typically use 6 decimals
+
+    const signatures: string[] = [];
+    const errors: string[] = [];
+    let distributedCount = 0;
+    let failedCount = 0;
+
+    for (const recipient of recipients) {
+      try {
+        const recipientPubkey = new PublicKey(recipient.wallet);
+        const amountToSend = recipient.amount * Math.pow(10, decimals);
+
+        // Get source token account
+        const sourceTokenAccount = await getAssociatedTokenAddress(
+          tokenMintPubkey,
+          sourceWalletPubkey
+        );
+
+        // Get or create destination token account
+        const destinationTokenAccount = await getOrCreateAssociatedTokenAccount(
+          this.connection,
+          this.keypair,
+          tokenMintPubkey,
+          recipientPubkey
+        );
+
+        // Create transfer instruction
+        const transferInstruction = createTransferInstruction(
+          sourceTokenAccount,
+          destinationTokenAccount.address,
+          sourceWalletPubkey,
+          amountToSend,
+          [],
+          TOKEN_PROGRAM_ID
+        );
+
+        // Create and send transaction
+        const transaction = new Transaction().add(transferInstruction);
+        const signature = await this.connection.sendTransaction(
+          transaction,
+          [this.keypair],
+          { skipPreflight: false, preflightCommitment: 'confirmed' }
+        );
+
+        // Confirm transaction
+        await this.connection.confirmTransaction(signature, 'confirmed');
+
+        signatures.push(signature);
+        distributedCount++;
+        this.log(`✓ Sent ${recipient.amount} to ${recipient.name || recipient.wallet.substring(0, 8)}... (${signature.substring(0, 8)}...)`);
+
+      } catch (error) {
+        failedCount++;
+        const errorMsg = error instanceof Error ? error.message : 'Unknown error';
+        errors.push(`Failed to send to ${recipient.name || recipient.wallet}: ${errorMsg}`);
+        this.log(`✗ Failed: ${recipient.name || recipient.wallet} - ${errorMsg}`);
+      }
+    }
+
+    this.log(`\n✓ Distribution complete! ${distributedCount}/${recipients.length} successful\n`);
 
     return {
-      success: true,
+      success: distributedCount > 0,
       totalRecipients: recipients.length,
-      distributedCount: recipients.length,
-      failedCount: 0,
+      distributedCount,
+      failedCount,
       signatures,
+      errors: errors.length > 0 ? errors : undefined,
       totalAmount,
       isDryRun: false,
     };

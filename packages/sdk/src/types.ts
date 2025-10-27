@@ -1,3 +1,5 @@
+import type { Keypair } from '@solana/web3.js';
+
 /**
  * SDK Configuration
  */
@@ -8,6 +10,8 @@ export interface RewardAIConfig {
   rpcEndpoint?: string;
   /** Enable verbose logging */
   verbose?: boolean;
+  /** Keypair for signing transactions (required for real transfers) */
+  keypair?: Keypair;
 }
 
 /**

@@ -8,6 +8,7 @@ export declare class RewardAI {
     private config;
     private connection;
     private initialized;
+    private keypair?;
     constructor(config?: RewardAIConfig);
     /**
      * Initialize the SDK
