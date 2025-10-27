@@ -1,6 +1,6 @@
 # RewardAI SDK
 
-[![npm version](https://badge.fury.io/js/%40beigecode%2Frewardai-sdk.svg)](https://www.npmjs.com/package/@beigecode/rewardai-sdk)
+[![npm version](https://badge.fury.io/js/rewardai-sdk.svg)](https://www.npmjs.com/package/rewardai-sdk)
 [![Build Status](https://github.com/beigecode/rewardai-sdk/workflows/CI/badge.svg)](https://github.com/beigecode/rewardai-sdk/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Built with x402](https://img.shields.io/badge/Built%20with-x402-00FF7F)](https://github.com/coinbase/x402)
@@ -22,16 +22,16 @@
 
 ```bash
 # Install SDK
-npm install @beigecode/rewardai-sdk
+npm install rewardai-sdk
 
 # Install CLI globally
-npm install -g @beigecode/rewardai
+npm install -g rewardai
 ```
 
 ### SDK Usage
 
 ```typescript
-import { RewardAI } from '@rewardai/sdk';
+import { RewardAI } from 'rewardai-sdk';
 
 const sdk = new RewardAI({ network: 'devnet' });
 await sdk.init();
@@ -79,7 +79,7 @@ RewardAI leverages [Coinbase's x402](https://github.com/coinbase/x402) for secur
 
 | Package | Version | Description |
 |---------|---------|-------------|
-| [@rewardai/sdk](packages/sdk) | [![npm](https://img.shields.io/npm/v/@rewardai/sdk.svg)](https://www.npmjs.com/package/@rewardai/sdk) | Core TypeScript SDK |
+| [rewardai-sdk](packages/sdk) | [![npm](https://img.shields.io/npm/v/rewardai-sdk.svg)](https://www.npmjs.com/package/rewardai-sdk) | Core TypeScript SDK |
 | [rewardai](packages/cli) | [![npm](https://img.shields.io/npm/v/rewardai.svg)](https://www.npmjs.com/package/rewardai) | CLI tool |
 
 ## Development
